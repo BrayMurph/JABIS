@@ -1,0 +1,134 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find places to stay on TPS</title>
+    <link href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="navbar-container bg-white py-4 flex fixed w-full top-0">
+      <a
+        href="#"
+        class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-32"
+      >TPS</a>
+    </div>
+
+    <div class="container mx-auto px-8 mt-16 md:flex">
+      <!-- Schedule Container -->
+      <div class="schedule-container bg-gray-100 py-20 flex md:w-4/5 md:mr-2">
+        <form
+          action="/s"
+          target="_blank"
+          role="search"
+          autocomplete="off"
+          class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full"
+        >
+          <div class="header mb-8">
+            <h1 class="text-4xl font-bold">Find places to stay on TPS</h1>
+            <div class="subheading text-gray-600">Discover entire hotels and
+              amusements nearby, perfect for any trip.
+            </div>
+          </div>
+
+          <div class="search-location mb-6">
+            <label for="location" class="block font-bold">Location</label>
+            <div>
+              <input
+                type="text"
+                id="location"
+                placeholder="Anywhere"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div
+            class="search-dates mb-6 flex flex-col md:flex-row md:justify-between"
+          >
+            <div class="w-full md:w-48 md:mr-2 mb-4 md:mb-0">
+              <label for="checkin" class="block font-bold">Check-in</label>
+              <div>
+                <input
+                  type="date"
+                  id="checkin"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="w-full md:w-48 md:ml-2">
+              <label for="checkout" class="block font-bold">Check-out</label>
+              <div>
+                <input
+                  type="date"
+                  id="checkout"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="search-adults mb-6">
+            <label for="adults" class="block font-bold">Adults</label>
+            <div>
+              <select
+                id="adults"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              >
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-children mb-6">
+            <label for="children" class="block font-bold">Children</label>
+            <div>
+              <select
+                id="children"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              >
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="search-button bg-pink-600 text-white py-4 px-8 rounded-md text-xl font-bold hover:bg-pink-700 focus:outline-none"
+          >Search</button>
+        </form>
+      </div>
+
+      <!-- Image Container -->
+      <div class="w-full md:w-2/2 py-32">
+        <img
+          src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Image"
+          class="w-full h-auto"
+        />
+      </div>
+    </div>
+
+    <div class="container mx-auto px-8">
+      <p class="my-4"></p>
+    </div>
+
+    <!-- Handlebars Templates -->
+    <script id="search-results-template" type="text/x-handlebars-template">
+      <!-- Your Handlebars template goes here -->
+    </script>
+
+    <script src="path/to/handlebars.js"></script>
+    <script src="path/to/your-app.js"></script>
+  </body>
+
+</html>
