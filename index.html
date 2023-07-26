@@ -35,14 +35,14 @@
         <div class="w-full md:w-48 md:mr-2 mb-4 md:mb-0">
           <label for="checkin" class="block font-bold">Check-in</label>
           <div>
-            <input type="text" id="checkin" placeholder="Add Date"
+            <input type="date" id="checkin"
               class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none">
           </div>
         </div>
         <div class="w-full md:w-48 md:ml-2">
           <label for="checkout" class="block font-bold">Check-out</label>
           <div>
-            <input type="text" id="checkout" placeholder="Add Date"
+            <input type="date" id="checkout"
               class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none">
           </div>
         </div>
@@ -83,6 +83,28 @@
 
     <p class="my-4"></p>
   </div>
+  <script>
+    function scheduleAppointment() {
+      const checkinDate = new Date(document.getElementById('checkin').value);
+      const checkoutDate = new Date(document.getElementById('checkout').value);
+
+      if (isNaN(checkinDate) || isNaN(checkoutDate)) {
+        alert('Please select valid check-in and check-out dates.');
+      } else if (checkoutDate < checkinDate) {
+        alert('Check-out date cannot be before check-in date.');
+      } else {
+        // You can do something with the selected dates here
+        // For example, you can send them to a server or perform some action
+        alert('Check-in: ' + checkinDate.toDateString() + '\nCheck-out: ' + checkoutDate.toDateString());
+      }
+    }
+
+    // Optional: If you want to prevent users from selecting past dates, you can add the min attribute to the date inputs.
+    // For example, to prevent selecting dates before today:
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkin').setAttribute('min', today);
+    document.getElementById('checkout').setAttribute('min', today);
+  </script>
 </body>
 
 </html>
