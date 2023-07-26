@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   // Function to handle form submission
   function scheduleAppointment() {
     const checkinDate = new Date(document.getElementById("checkin").value);
@@ -25,4 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const today = new Date().toISOString().split("T")[0];
   document.getElementById("checkin").setAttribute("min", today);
   document.getElementById("checkout").setAttribute("min", today);
-});
+
+  // Get the form element and add a submit event listener
+  const form = document.getElementById("search-form");
+  form.addEventListener("submit", function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+    // Call the scheduleAppointment function to handle the form submission
+    scheduleAppointment();
+  });
+})();
