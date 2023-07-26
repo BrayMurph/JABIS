@@ -1,0 +1,1 @@
+// Define the user model add in needed passport functions
