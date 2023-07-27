@@ -1,6 +1,10 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const session = require('express-session');
+const passport = require('passport');
+const User = require('./models/User');
+const authController = require('./controllers/authController');
 
 const app = express();
 const port = 3001;
