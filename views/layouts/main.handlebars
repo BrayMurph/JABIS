@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find places to stay on TPS</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,33 +133,9 @@
     <p class="my-4"></p>
   </div>
 
-  <!-- Handlebars Templates -->
-  <script id="search-results-template" type="text/x-handlebars-template">
-    <!-- Your Handlebars template goes here -->
-  </script>
-
-  <script src="path/to/handlebars.js"></script>
-  <!-- Other scripts go here, if there is any -->
-
-  <script>
-    // JavaScript code to handle form submission
-    document.addEventListener("DOMContentLoaded", function () {
-      const searchForm = document.getElementById("searchForm");
-      searchForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get the form input values
-        const location = document.getElementById("location").value;
-        const checkin = document.getElementById("checkin").value;
-        const checkout = document.getElementById("checkout").value;
-
-        // Display the selected data in an alert
-        alert(
-          `Location: ${location}\nCheck-in: ${checkin}\nCheck-out: ${checkout}`
-        );
-      });
-    });
-  </script>
-</body>
+    <script src="path/to/handlebars.js"></script>
+    <script src="path/js/script.js"></script>
+  </body>
 
 </html>
+<!-- test push with the views folders updated as far as i know-->
