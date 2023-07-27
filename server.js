@@ -29,6 +29,22 @@ app.get("/", (req, res) => {
   res.render("layouts/main");
 });
 
+// express session setup
+app.use(session({
+  secret: process.env.secretKey,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// authentication routes
+app.post('/login', authController.login);
+app.get('/logout', authController.logout);
+// add route for registration
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
