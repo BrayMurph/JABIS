@@ -8,6 +8,15 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <style>
+      /* CSS for the iPad (portrait) view and below */ @media screen and
+      (max-width: 768px) { #home-picture { order: 2; /* Move home picture below
+      schedule container */ } } /* CSS for the desktop view */ @media screen and
+      (min-width: 769px) { .container { display: flex; flex-wrap: wrap; }
+      #home-picture { order: 1; /* Move home picture to the left */ flex: 1 0
+      50%; max-width: 50%; } .schedule-container { order: 2; /* Move schedule
+      container to the right */ flex: 1 0 50%; max-width: 50%; } }
+    </style>
   </head>
 
   <body class="bg-gray-100">
@@ -22,9 +31,18 @@
       >Sign Up</a>
     </div>
 
-    <div class="container mx-auto px-8 mt-16 md:flex">
+    <div class="container mx-auto px-8 mt-16">
+      <!-- Home Picture -->
+      <div class="w-full md:w-1/2 py-32" id="home-picture">
+        <img
+          src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Image"
+          class="w-full h-auto"
+        />
+      </div>
+
       <!-- Schedule Container -->
-      <div class="schedule-container bg-gray-100 py-20 flex md:w-4/5 md:mr-2">
+      <div class="schedule-container bg-gray-100 py-20 w-full md:w-1/2 md:ml-2">
         <!-- Add an id attribute to the form to access it in JavaScript -->
         <form
           action="/s"
@@ -34,6 +52,7 @@
           class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full"
           id="searchForm"
         >
+          <!-- Existing form code here -->
           <div class="header mb-8">
             <h1 class="text-4xl font-bold">Find places to stay on Travel XP</h1>
             <div class="subheading text-gray-600">
@@ -106,24 +125,46 @@
               </select>
             </div>
           </div>
-
           <button
             type="submit"
             class="search-button bg-pink-600 text-white py-4 px-8 rounded-md text-xl font-bold hover:bg-pink-700 focus:outline-none"
           >Search</button>
         </form>
       </div>
+    </div>
 
-      <!-- Image Container -->
-      <div class="w-full md:w-2/2 py-32">
-        <img
-          src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Image"
-          class="w-full h-auto"
-        />
+    <!-- Containers 1, 2, and 3 -->
+    <div class="container mx-auto md:w-2/3 mt-4 md:flex md:justify-between">
+      <!-- Container 1 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-2xl">
+          <b>Enjoy some flexibility.</b>
+          <br />
+          If your plans change, stays with flexible cancellation make it simple
+          to rebook.
+        </p>
+      </div>
+
+      <!-- Container 2 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-2xl">
+          <b>Over 7 million active listings</b><br />Join over 1 billion other
+          guests who have discovered getaways in over 220 countries and
+          destinations.
+        </p>
+      </div>
+
+      <!-- Container 3 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-2xl">
+          <b>100+ filters for customized stays</b><br />Choose your price range,
+          the number of rooms you want, and other important features to locate
+          the perfect stay for you.
+        </p>
       </div>
     </div>
-    <footer class="bg-white py-6 text-black text-center">
+
+    <footer class="bg-white py-6 text-black text-center mt-4">
       <p class="text-sm">
         © 2023 Travel XP, Inc. ·
         <a href="https://example.com/terms" class="hover:underline">Terms</a>
@@ -144,3 +185,6 @@
   </body>
 
 </html>
+Now, the home picture will be placed on the right side of the schedule container
+when the page loads in desktop view, and it will be above the schedule container
+in iPad/mobile view.
