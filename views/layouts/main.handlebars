@@ -8,6 +8,10 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css"
+    />
     <style>
       /* CSS for the iPad (portrait) view and below */ @media screen and
       (max-width: 768px) { #home-picture { order: 2; /* Move home picture below
@@ -18,18 +22,13 @@
       container to the right */ flex: 1 0 50%; max-width: 50%; } }
     </style>
   </head>
-
-  <body class="bg-gray-100">
-    <div class="navbar-container bg-white py-4 flex fixed w-full top-0">
-      <a
-        href="#"
-        class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-32"
-      >Travel XP</a>
-      <a
-        href="#signup"
-        class="ml-auto mr-4 text-pink-600 text-lg font-bold hover:underline"
-      >Sign Up</a>
-    </div>
+<body class="bg-white">
+  <div class="navbar-container bg-white py-4 flex fixed w-full top-0" style="border-bottom: 0.4px solid rgb(211, 203, 203);">
+    <a href="#" class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-32">Travel XP</a>
+    <a href="#signup" class="ml-auto mr-4 text-pink-600 text-lg font-bold hover:underline">Sign Up</a>
+  </div>
+  <div class="line-at-bottom bg-black h-1 w-full"></div>
+</body>
 
     <div class="container mx-auto px-8 mt-16">
       <!-- Home Picture -->
@@ -42,7 +41,7 @@
       </div>
 
       <!-- Schedule Container -->
-      <div class="schedule-container bg-gray-100 py-20 w-full md:w-1/2 md:ml-2">
+      <div class="schedule-container bg-white py-20 w-full md:w-1/2 md:ml-2">
         <!-- Add an id attribute to the form to access it in JavaScript -->
         <form
           action="/s"
@@ -162,9 +161,133 @@
           the perfect stay for you.
         </p>
       </div>
-    </div>
 
-    <footer class="bg-white py-6 text-black text-center mt-4">
+    </div>
+    <div class="flex justify-center items-center">
+      <!-- Family-friendly stays with full kitchens -->
+      <div class="py-8">
+        <h2 class="text-2xl font-bold mb-4 flex justify-left items-center">Tall,
+          Spacious, we have it all!</h2>
+        <div class="flex justify-center items-center">
+          <!-- Image container -->
+          <div class="grid grid-cols-3 md:flex md:flex-wrap gap-8">
+            <!-- Placeholder Image 1 -->
+            <div class="py-8">
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Image 1"
+                class="w-1/3 h-auto mx-auto mb-4"
+              />
+            </div>
+
+            <!-- Placeholder Image 2 -->
+            <div class="py-8">
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Image 2"
+                class="w-1/3 h-auto mx-auto mb-4"
+              />
+            </div>
+
+            <!-- Placeholder Image 3 -->
+            <div class="py-8">
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Image 3"
+                class="w-1/3 h-auto mx-auto mb-4"
+              />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="flex justify-center items-center">
+      <!-- Family-friendly stays with full kitchens -->
+      <div class="py-8">
+        <h2
+          class="text-2xl font-bold mb-4 flex justify-center items-center"
+        >Family-friendly stays with full kitchens</h2>
+        <p class="text-gray-800 mb-4 flex justify-center items-center">Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. At cumque assumenda
+          adipisci praesentium, quos repudiandae quibusdam, aspernatur
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center items-center">
+      <!-- Cabins section -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Cabin 1 -->
+        <div class="py-8">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Image"
+            class="w-1/3 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-lg font-bold mb-2">hotel 1</h3>
+          <p class="text-gray-800 mb-1">hotel description</p>
+          <p class="text-gray-800 mb-1">2 beds</p>
+          <p class="text-gray-800 mb-1">backend dates</p>
+          <p class="text-gray-800 mb-1">$248</p>
+          <p class="text-gray-800 mb-1">night</p>
+          <p class="text-gray-800 mb-1">$1,529 total</p>
+          <p class="text-gray-800 mb-1">4.98 (154)</p>
+        </div>
+
+        <!-- Cabin 2 -->
+        <div class="py-8">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Image"
+            class="w-1/3 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-lg font-bold mb-2">hotel 2</h3>
+          <p class="text-gray-800 mb-1">hotel description</p>
+          <p class="text-gray-800 mb-1">2 beds</p>
+          <p class="text-gray-800 mb-1">backend dates</p>
+          <p class="text-gray-800 mb-1">$248</p>
+          <p class="text-gray-800 mb-1">night</p>
+          <p class="text-gray-800 mb-1">$1,529 total</p>
+          <p class="text-gray-800 mb-1">4.98 (154)</p>
+        </div>
+
+        <!-- Cabin 3 -->
+        <div class="py-8">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Image"
+            class="w-1/3 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-lg font-bold mb-2">hotel 3</h3>
+          <p class="text-gray-800 mb-1">hotel description</p>
+          <p class="text-gray-800 mb-1">2 beds</p>
+          <p class="text-gray-800 mb-1">backend dates</p>
+          <p class="text-gray-800 mb-1">$248</p>
+          <p class="text-gray-800 mb-1">night</p>
+          <p class="text-gray-800 mb-1">$1,529 total</p>
+          <p class="text-gray-800 mb-1">4.98 (154)</p>
+        </div>
+
+        <!-- Cabin 4 -->
+        <div class="py-8">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Image"
+            class="w-1/3 h-auto mx-auto mb-4"
+          />
+          <h3 class="text-lg font-bold mb-2">hotel 4</h3>
+          <p class="text-gray-800 mb-1">hotel description</p>
+          <p class="text-gray-800 mb-1">2 beds</p>
+          <p class="text-gray-800 mb-1">backend dates</p>
+          <p class="text-gray-800 mb-1">$248</p>
+          <p class="text-gray-800 mb-1">night</p>
+          <p class="text-gray-800 mb-1">$1,529 total</p>
+          <p class="text-gray-800 mb-1">4.98 (154)</p>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-white py-6 text-black text-center mt-4 "style="border-top: 0.4px solid rgb(211, 203, 203);">
       <p class="text-sm">
         © 2023 Travel XP, Inc. ·
         <a href="https://example.com/terms" class="hover:underline">Terms</a>
@@ -185,6 +308,3 @@
   </body>
 
 </html>
-Now, the home picture will be placed on the right side of the schedule container
-when the page loads in desktop view, and it will be above the schedule container
-in iPad/mobile view.
