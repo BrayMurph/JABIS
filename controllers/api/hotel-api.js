@@ -12,6 +12,7 @@ function hotelApi () {
 	};
 	
 	$.ajax(settings).done(function (response) {
+		console.log("Hotel API");
 		console.log(response);
 		console.log(response.properties[0]);
 	});
