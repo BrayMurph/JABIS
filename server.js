@@ -3,6 +3,7 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require('express-session');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const authController = require('./controllers/authController');
 
@@ -39,6 +40,11 @@ app.use(session({
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// PassportConfiguration
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // authentication routes
 app.post('/login', authController.login);

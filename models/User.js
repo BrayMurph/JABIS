@@ -14,6 +14,48 @@ passportLocalSequelize.attachToUser(User, {
     usernameField: 'username',
     hashField: 'password',
 });
+
+// Add fields for id, first_name, last_name, email, and password
+User.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      first_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: 'User',
+    }
+  );
+
+
 // used to find a user in the database based on username. Uses findOne method to retrieve the matching username
 // returns null if no user is found
 User.findByUsername = async function (username, callback) {

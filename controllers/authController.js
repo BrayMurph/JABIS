@@ -72,5 +72,15 @@ module.exports = {
             return next();
         }
         res.status(401).json({ message: 'Authentication required'});
+    },
+
+    register: function(req, res) {
+        const { username, password } = req.body;
+        User.register(new User({ username}), password, function(err, user) {
+            if (err) {
+                return res.status(400).json({ message: 'Failed to register user', error: err.message});
+            }
+            res.json({ message: 'Registration successful', user});
+        });
     }
 };
