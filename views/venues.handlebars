@@ -1,0 +1,32 @@
+<!-- venues.handlebars -->
+
+{{!-- Include the header template --}}
+{{> header}}
+
+<div class="container mx-auto mt-8">
+  <h2 class="text-2xl font-bold mb-4">Venue Listings</h2>
+  
+  {{!-- Check if there are venues to display --}}
+  {{#if venues}}
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{!-- Iterate through the list of venues --}}
+      {{#each venues}}
+        <li class="bg-white shadow rounded-lg p-4">
+          <h3 class="text-lg font-bold mb-2">{{name}}</h3>
+          <p class="text-gray-600 mb-4">{{description}}</p>
+          <p class="text-gray-800 mb-2">Location: {{location}}</p>
+          <p class="text-gray-800 mb-2">Capacity: {{capacity}}</p>
+          {{!-- Add more venue details as needed --}}
+          <button class="bg-pink-600 text-white py-2 px-4 rounded-md text-sm font-semibold hover:bg-pink-700">
+            Save to My Account
+          </button>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p class="text-center text-gray-600">No venues found.</p>
+  {{/if}}
+</div>
+
+{{!-- Include the footer template --}}
+{{> footer}}
