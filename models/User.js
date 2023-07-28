@@ -5,18 +5,16 @@ const { Model, DataTypes } = require('sequelize');
 const passportLocalSequelize = require('passport-local-sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-    // add methods/associations/etc...
-}
+// class User extends Model {
+//     // add methods/associations/etc...
+// }
 // attaches the local authentication strategy from passport.js to the user model
 // automatically adds username and password to the model
-passportLocalSequelize.attachToUser(User, {
-    usernameField: 'username',
-    hashField: 'password',
-});
+
 
 // Add fields for id, first_name, last_name, email, and password
-User.init(
+const User = sequelize.define(
+    'User',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -49,12 +47,13 @@ User.init(
         allowNull: false,
       },
     },
-    {
-      sequelize,
-      modelName: 'User',
-    }
+    
   );
 
+  passportLocalSequelize.attachToUser(User, {
+    usernameField: 'username',
+    hashField: 'password',
+});
 
 // used to find a user in the database based on username. Uses findOne method to retrieve the matching username
 // returns null if no user is found
