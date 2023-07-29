@@ -1,0 +1,107 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venues - Travel XP</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css"
+    />
+    <style>
+      /* Add any additional CSS styles specific to the Venues template */
+    </style>
+  </head>
+
+  <body class="bg-white">
+    <div
+      class="navbar-container bg-white py-4 flex fixed w-full top-0"
+      style="border-bottom: 0.2px solid rgb(211, 203, 203);"
+    >
+      <a
+        href="#"
+        class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-8"
+      >Travel XP</a>
+      <a
+        href="#signup"
+        class="ml-auto mr-8 text-pink-600 text-lg font-bold hover:underline"
+      >Sign Up</a>
+    </div>
+    <div class="line-at-bottom bg-black h-1 w-full"></div>
+
+    <!-- Google Maps Section -->
+    <section class="container mx-auto py-28">
+      <div class="w-full bg-gray-400 h-96 mb-8">
+        <!-- Google Maps code goes here -->
+        <!-- You can embed Google Maps or use the Google Maps API here -->
+      </div>
+    </section>
+
+    <section class="container mx-auto py-8">
+      <h1 class="text-4xl font-bold text-center mt-4">Venues near your hotel</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+        <!-- Venue 1 -->
+        <div class="bg-white rounded-lg shadow-lg">
+          <img
+            src="https://via.placeholder.com/400x200"
+            alt="Venue 1 Image"
+            class="w-full h-48 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Venue 1 Name</h2>
+            <p class="text-gray-600 mb-4">Venue 1 Description Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-gray-900 font-bold text-xl">$150</span>
+              <a
+                href="#"
+                class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300 ease-in-out"
+              >Book Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more venue cards as needed -->
+      </div>
+    </section>
+
+    <div class="flex justify-center mt-8 py-8">
+      <a
+        href="#"
+        class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300 ease-in-out mr-2"
+      >1</a>
+      <a
+        href="#"
+        class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300 ease-in-out ml-2"
+      >2</a>
+    </div>
+
+    <section>
+      <!-- Footer -->
+      <footer
+        class="bg-white py-6 text-black text-center"
+        style="border-top: 0.4px solid rgb(211, 203, 203);"
+      >
+        <p class="text-sm">
+          © 2023 Travel XP, Inc.
+          <a href="https://example.com/terms" class="hover:underline">Terms</a>
+          <a href="https://example.com/sitemap" class="hover:underline">Site map</a>
+          <a
+            href="https://example.com/privacy"
+            class="hover:underline"
+          >Privacy</a>
+          <a
+            href="https://example.com/privacy-choices"
+            class="hover:underline"
+          >Your Privacy Choices</a>
+        </p>
+      </footer>
+    </section>
+
+    <script src="path/js/script.js"></script>
+  </body>
+
+</html>
