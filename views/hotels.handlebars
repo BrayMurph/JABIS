@@ -10,22 +10,39 @@
   <style>
     /* Add any additional CSS styles specific to option1.handlebars */
   </style>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDF2e-FpJnvLOPih4-RjBmDhKqYSE0gYCg"></script>
 </head>
-
-  <div class="navbar-container bg-white py-4 flex fixed w-full top-0 z-50" style="border-bottom: 0.2px solid rgb(211, 203, 203);">
+ <div class="navbar-container bg-white py-4 flex fixed w-full top-0 z-50" style="border-bottom: 0.2px solid rgb(211, 203, 203);">
     <a href="#" class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-4">Travel XP</a>
     <a href="#signup" class="ml-auto mr-4 text-pink-600 text-lg font-bold hover:underline">Sign Up</a>
   </div>
   <div class="line-at-bottom bg-black h-1 w-full"></div>
 
+ <!-- Google Maps Section -->
+<section class="container mx-auto py-28">
+  <div class="w-full bg-gray-400 h-96 mb-8">
+    <!-- Google Maps code goes here -->
+    <div id="map" style="height: 100%;"></div>
+  </div>
+</section>
 
+<script>
+  // Initialize and display the map
+  function initMap() {
+    // Create a map centered on a specific location (e.g., New York City)
+    const mapOptions = {
+      center: { lat: 40.7128, lng: -74.0060 }, // Update the coordinates as needed
+      zoom: 12, // Adjust the zoom level as needed
+    };
+    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  }
+  
+  // Call the initMap function once the Google Maps API is loaded
+  window.onload = function () {
+    initMap();
+  };
+</script>
+  </section>
 
-  <!-- Google Maps Section -->
-  <section class="container mx-auto py-28">
-    <div class="w-full bg-gray-400 h-96 mb-8">
-      <!-- Google Maps code goes here -->
-      <div id="map" style="height: 100%;"></div>
     </div>
     <!-- Search Bar Section -->
     <section class="container mx-auto px-4">
