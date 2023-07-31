@@ -13,6 +13,15 @@ const hbs = exphbs.create({
 // Configure Handlebars as the template engine
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
+// Define a route for the hotels page
+app.get("/hotels", (req, res) => {
+  res.render("hotels", { layout: "main" });
+});
+
+// Define a route for the venues page
+app.get("/venues", (req, res) => {
+  res.render("venues", { layout: "main" });
+});
 
 // Set the views directory
 app.set("views", path.join(__dirname, "views"));
