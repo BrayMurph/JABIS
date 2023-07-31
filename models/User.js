@@ -1,38 +1,56 @@
-// Define the user model add in needed passport functions
-// add findByUsername function and verifyPassword function for passportjs
-
 const { Model, DataTypes } = require('sequelize');
 const passportLocalSequelize = require('passport-local-sequelize');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-    // add methods/associations/etc...
+  // Add methods/associations/etc...
 }
-// attaches the local authentication strategy from passport.js to the user model
-// automatically adds username and password to the model
+
+// Attaches the local authentication strategy from passport.js to the user model
+// Automatically adds username and password to the model
 passportLocalSequelize.attachToUser(User, {
-    usernameField: 'username',
-    hashField: 'password',
+  usernameField: 'username',
+  hashField: 'password',
 });
-// used to find a user in the database based on username. Uses findOne method to retrieve the matching username
-// returns null if no user is found
-User.findByUsername = async function (username, callback) {
-    try {
-        const user = await this.findOne({ where: {username}});
-        callback(null, user || null);
-    } catch (err) {
-        callback(err);
-    }
-};
 
-// method to verify a password against the hashed password
-// verifyPasswordHash method provided by passport-local-sequelize
-User.prototype.verifyPassword = function (password, callback) {
-    this.verifyPasswordHash(password, this.password, function (err, isMatch) {
-        if (err) return callback(err);
-        callback(null, isMatch);
-    });
-};
+// Add validation rules for the username and password fields
+User.init(
+  {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true, // Ensures that each username is unique
+      validate: {
+        notNull: {
+          msg: 'Username is required.',
+        },
+        len: {
+          args: [3, 20],
+          msg: 'Username must be between 3 and 20 characters.',
+        },
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Password is required.',
+        },
+        len: {
+          args: [8, 100],
+          msg: 'Password must be at least 8 characters.',
+        },
+      },
+    },
+  },
+  {
+    sequelize,
+    modelName: 'User',
+  }
+);
 
-// exports the User model
-module.exports = User
+// Rest of the User model and passport functions...
+// ...
+
+module.exports = User;
