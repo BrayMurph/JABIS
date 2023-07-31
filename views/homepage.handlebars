@@ -139,5 +139,425 @@
     <script src="path/js/script.js"></script>
   </body>
 
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find places to stay on Travel XP</title>
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+  <style>
+    /* Add custom CSS for positioning the home-picture and schedule-container */
+    .content-container {
+      padding-top: 32px; /* Adjust this value based on your navbar height */
+    }
+
+    /* Make sure to add this class to the parent container of home-picture and schedule-container */
+    .z-1 {
+      z-index: 1;
+    }
+
+    /* Add custom CSS for responsive layout */
+    @media (min-width: 768px) {
+      .content-container {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .schedule-container {
+        flex: 2;
+      }
+
+      #home-picture {
+        flex: 5;
+      }
+    }
+    <style>
+  .content-container {
+    padding-top: 32px;
+  }
+
+  .z-1 {
+    z-index: 1;
+  }
+
+  @media (min-width: 768px) {
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .schedule-container {
+      flex: 1;
+    }
+
+    #home-picture {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 1700px) {
+    #home-picture {
+      display: none;
+    }
+  }
+.text-2xl {
+      border-bottom: 1px solid #000;
+      width: 700px;
+    }
+      .custom-transition {
+    transition-delay: 300ms;
+  }
+  </style>
+</head>
+
+<body class="bg-white">
+  <div class="navbar-container bg-white py-4 flex fixed w-full top-0" style="border-bottom: 0.4px solid rgb(211, 203, 203);">
+    <a href="#" class="navbar-brand text-pink-600 text-3xl font-bold ml-4 md:ml-4">Travel XP</a>
+    <a href="#signup" class="ml-auto mr-4 text-pink-600 text-xl font-bold hover:underline">Sign Up</a>
+  </div>
+  <div class="line-at-bottom bg-black h-1 w-full"></div>
+
+  <section>
+    <div class="content-container flex justify-center items-center">
+      <!-- Schedule Container -->
+      <div class="schedule-container bg-white py-32 px-32 w-full md:w-1/2 md:ml-64">
+        <form
+          action="/s"
+          target="_blank"
+          role="search"
+          autocomplete="off"
+          class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full"
+          id="searchForm"
+        >
+          <!-- Existing form code here -->
+          <div class="header mb-8">
+            <h1 class="text-4xl font-bold">Find places to stay on Travel XP</h1>
+            <div class="subheading text-gray-600">
+              Discover entire hotels and amusements nearby, perfect for any
+              trip.
+            </div>
+          </div>
+
+          <div class="search-location mb-6">
+            <label for="location" class="block font-bold">Location</label>
+            <div>
+              <input
+                type="text"
+                id="location"
+                placeholder="Anywhere"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="search-dates mb-6 flex flex-col md:flex-row md:justify-between">
+            <div class="w-full md:w-48 md:mr-2 mb-4 md:mb-0">
+              <label for="checkin" class="block font-bold">Check-in</label>
+              <div>
+                <input
+                  type="date"
+                  id="checkin"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="w-full md:w-48 md:ml-2">
+              <label for="checkout" class="block font-bold">Check-out</label>
+              <div>
+                <input
+                  type="date"
+                  id="checkout"
+                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="search-adults mb-6">
+            <label for="adults" class="block font-bold">Adults</label>
+            <div>
+              <select
+                id="adults"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              >
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-children mb-6">
+            <label for="children" class="block font-bold">Children</label>
+            <div>
+              <select
+                id="children"
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+              >
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Search</span>
+</a>
+  </form>
+      </div>
+<div class="w-full md:w-full py-64 md:pr-96" id="home-picture">
+  <img
+    src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    height="700"
+    width="900"
+    alt="Image"
+    class=" rounded-2xl"
+  />
+</div>
+      <!-- Home Picture -->
+
+  </section>
+    <!-- Containers 1, 2, and 3 -->
+    <div class="container mx-auto md:w-2/3 mt-4 md:flex md:justify-between">
+      <!-- Container 1 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-3xl">
+          <b>Enjoy some flexibility.</b>
+          <br />
+          If your plans change, stays with flexible cancellation make it simple
+          to rebook.
+        </p>
+      </div>
+
+      <!-- Container 2 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-3xl">
+          <b>Over 7 million active listings</b><br />Join over 1 billion other
+          guests who have discovered getaways in over 220 countries and
+          destinations.
+        </p>
+      </div>
+
+      <!-- Container 3 -->
+      <div class="w-full md:w-1/3 px-4 py-8">
+        <p class="text-gray-800 text-3xl">
+          <b>100+ filters for customized stays</b><br />Choose your price range,
+          the number of rooms you want, and other important features to locate
+          the perfect stay for you.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center">
+      <!-- Family-friendly stays with full kitchens -->
+      <div class="py-8">
+        <h2
+          class="text-3xl font-bold mb-4 flex justify-center items-center py-16"
+        >Tall, Spacious, we have it all!</h2>
+        <div class="flex justify-center items-center">
+          <div class="grid grid-cols-3 md:flex md:flex-wrap gap-4">
+            <!-- Placeholder Image 1 -->
+            <div class="flex-1 text-center">
+              <div class="flex items-center flex-col">
+                <img
+                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  alt="Image 1"
+                  class="w-4/5 h-auto rounded-3xl"
+                />
+                <p class="mt-4 text-left">Hotels</p>
+              </div>
+            </div>
+            <!-- Placeholder Image 2 -->
+            <div class="flex-1 text-center">
+              <div class="flex items-center flex-col">
+                <img
+                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  alt="Image 1"
+                  class="w-4/5 h-auto rounded-3xl"
+                />
+                <p class="mt-4 text-left">Hotels</p>
+              </div>
+            </div>
+
+            <!-- Placeholder Image 3 -->
+            <div class="flex-1 text-center">
+              <div class="flex items-center flex-col">
+                <img
+                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  alt="Image 1"
+                  class="w-4/5 h-auto rounded-3xl"
+                />
+                <p class="mt-4 text-left">Hotels</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center">
+      <!-- Family-friendly stays with full kitchens -->
+      <div class="py-8">
+        <h2
+          class="text-3xl font-bold mb-4 flex justify-center items-center"
+        >Family-friendly stays with full kitchens</h2>
+        <div>
+        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. At cumque assumenda
+          adipisci praesentium, quos repudiandae quibusdam, aspernatur</p>
+          </div>
+          
+      </div>
+    </div>
+<section>
+    <div class="flex justify-center items-center">
+      <!-- choice section that showcases hotels/ venues-->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+     <div class="bg-white rounded-lg shadow-lg max-w-sm">
+        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
+          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-bold text-xl">$150</span>
+<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+</a>
+          </div>
+        </div>
+      </div>
+           <div class="bg-white rounded-lg shadow-lg max-w-sm">
+        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
+          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-bold text-xl">$150</span>
+<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+</a>
+          </div>
+        </div>
+      </div>
+           <div class="bg-white rounded-lg shadow-lg max-w-sm">
+        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
+          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-bold text-xl">$150</span>
+<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+</a>
+          </div>
+        </div>
+      </div>
+           <div class="bg-white rounded-lg shadow-lg max-w-sm">
+        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
+          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-bold text-xl">$150</span>
+<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+</a>
+          </div>
+        </div>
+      </div>
+ 
+</div>
+</section>
+  <div class=" flex justify-center items-center py-16">
+    <div class="w-1/2">
+      <div class=" pb-44 pl-12 flex justify-center text-5xl">Got questions? We have answers! </div>
+
+    </div>
+
+    <div class="w-1/2 py-16 pl-24 ">
+         <div class=" py-2 text-2xl">Do I need to schedule ahead of time or can it be last minute? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "Do I need to meet my Host?"</p>
+      </div>
+       <div class=" py-2 text-2xl">Will I get to see venues that are near my hotel?? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "What if I need to cancel due to a problem with the listing ?"</p>
+      </div>
+      <div class="  py-2 text-2xl">What is Travel XP and how does it work? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "What is Travel XP and how does it work?"</p>
+      </div>
+      <div class="py-2 text-2xl ">How do I use search filters? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "How do I search for a specific location?"</p>
+      </div>
+      <div class=" py-2 text-2xl">Need more information? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "Need more information?"</p>
+      </div>
+    </div>
+  </div>
+
+ <footer class="bg-white py-6 text-black text-center " style="border-top: 0.4px solid rgb(0, 0, 0);" >
+      <p class="text-sm">
+        © 2023 Travel XP, Inc.
+        <a href="https://example.com/terms" class="hover:underline">Terms</a>
+        <a href="https://example.com/sitemap" class="hover:underline">Site map</a>
+        <a href="https://example.com/privacy" class="hover:underline">Privacy</a>
+        <a href="https://example.com/privacy-choices" class="hover:underline">Your Privacy Choices</a>
+      </p>
+    </footer>
+    <script>
+       const faqQuestions = document.querySelectorAll(".text-2xl");
+    faqQuestions.forEach((question) => {
+      question.addEventListener("click", () => {
+        question.nextElementSibling.classList.toggle("hidden");
+
+        // Change the arrow icon on click
+        const icon = question.querySelector("i");
+        if (question.nextElementSibling.classList.contains("hidden")) {
+          icon.classList.remove("fa-chevron-up");
+          icon.classList.add("fa-chevron-down");
+        } else {
+          icon.classList.remove("fa-chevron-down");
+          icon.classList.add("fa-chevron-up");
+        }
+      });
+    });
+      </script>
+    <script src="path/to/handlebars.js"></script>
+    <script src="/public/js/script.js"></script>
+  </body>
+
 </html>
-<!-- test push with the views folders updated as far as i know-->
