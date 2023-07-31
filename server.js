@@ -48,9 +48,9 @@ app.get('/api', (req, res) => {
     'X-RapidAPI-Key': `${apiKey}`,
 			'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
   }
-}).then(apiRes => {
-  const data = apiRes.data
-  res.json(data)
+}).then((response) => {
+  const data = response.data
+  res.json(data.filterMetadata.amenities)
 })
 
 })
@@ -59,9 +59,9 @@ app.get('/api2', (req, res) => {
   axios({
     method: 'get',
     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey2}`
-  }).then(apiRes => {
-    const data = apiRes.data
-    res.json(data)
+  }).then((response) => {
+    const data = response.data
+    res.json(data._embedded.events)
   })
 })
 
