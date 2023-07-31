@@ -7,6 +7,8 @@
   <title>Find places to stay on Travel XP</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
   <style>
     /* Add custom CSS for positioning the home-picture and schedule-container */
     .content-container {
@@ -31,7 +33,7 @@
       }
 
       #home-picture {
-        flex: 2;
+        flex: 5;
       }
     }
     <style>
@@ -63,14 +65,17 @@
       display: none;
     }
   }
-
+.text-2xl {
+      border-bottom: 1px solid #000;
+      width: 700px;
+    }
   </style>
 </head>
 
 <body class="bg-white">
   <div class="navbar-container bg-white py-4 flex fixed w-full top-0" style="border-bottom: 0.4px solid rgb(211, 203, 203);">
-    <a href="#" class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-4">Travel XP</a>
-    <a href="#signup" class="ml-auto mr-4 text-pink-600 text-lg font-bold hover:underline">Sign Up</a>
+    <a href="#" class="navbar-brand text-pink-600 text-3xl font-bold ml-4 md:ml-4">Travel XP</a>
+    <a href="#signup" class="ml-auto mr-4 text-pink-600 text-xl font-bold hover:underline">Sign Up</a>
   </div>
   <div class="line-at-bottom bg-black h-1 w-full"></div>
 
@@ -163,17 +168,17 @@
           >Search</button>
         </form>
       </div>
-
-      <!-- Home Picture -->
 <div class="w-full md:w-full py-64 md:pr-96" id="home-picture">
   <img
     src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
-    height="600"
-    width="700"
+    height="700"
+    width="900"
     alt="Image"
-    class=" rounded-xl"
+    class=" rounded-2xl"
   />
 </div>
+      <!-- Home Picture -->
+
   </section>
     <!-- Containers 1, 2, and 3 -->
     <div class="container mx-auto md:w-2/3 mt-4 md:flex md:justify-between">
@@ -259,9 +264,12 @@
         <h2
           class="text-2xl font-bold mb-4 flex justify-center items-center"
         >Family-friendly stays with full kitchens</h2>
-        <p class="text-gray-800 mb-4 flex justify-center items-center">Lorem
+        <div>
+        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">Lorem
           ipsum dolor sit amet consectetur adipisicing elit. At cumque assumenda
           adipisci praesentium, quos repudiandae quibusdam, aspernatur</p>
+          </div>
+          
       </div>
     </div>
 <section>
@@ -312,8 +320,40 @@
           </div>
         </div>
       </div>
+ 
+</div>
 </section>
- <footer class="bg-white py-6 text-black text-center" >
+  <div class=" flex justify-center items-center">
+    <div class="w-1/2">
+      <div class=" pb-40 pl-12 flex justify-center text-5xl">Got questions? We have answers! </div>
+
+    </div>
+
+    <div class="w-1/2 py-16 pl-32 ">
+         <div class=" py-2 text-2xl">Do I need to schedule ahead of time or can it be last minute? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "Do I need to meet my Host?"</p>
+      </div>
+       <div class=" py-2 text-2xl">Will I get to see venues that are near my hotel?? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "What if I need to cancel due to a problem with the listing ?"</p>
+      </div>
+      <div class="  py-2 text-2xl">What is Travel XP and how does it work? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "What is Travel XP and how does it work?"</p>
+      </div>
+      <div class="py-2 text-2xl ">How do I use search filters? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "How do I search for a specific location?"</p>
+      </div>
+      <div class=" py-2 text-2xl">Need more information? <i class="fas fa-chevron-down"></i></div>
+      <div class="hidden faq-answer">
+        <p>Answer to "Need more information?"</p>
+      </div>
+    </div>
+  </div>
+     <div class="line-at-top bg-gray-200 h-1 w-full mt-16 "  ></div>
+ <footer class="bg-white py-6 text-black text-center mb-6" >
       <p class="text-sm">
         © 2023 Travel XP, Inc.
         <a href="https://example.com/terms" class="hover:underline">Terms</a>
@@ -322,8 +362,26 @@
         <a href="https://example.com/privacy-choices" class="hover:underline">Your Privacy Choices</a>
       </p>
     </footer>
+    <script>
+       const faqQuestions = document.querySelectorAll(".text-2xl");
+    faqQuestions.forEach((question) => {
+      question.addEventListener("click", () => {
+        question.nextElementSibling.classList.toggle("hidden");
+
+        // Change the arrow icon on click
+        const icon = question.querySelector("i");
+        if (question.nextElementSibling.classList.contains("hidden")) {
+          icon.classList.remove("fa-chevron-up");
+          icon.classList.add("fa-chevron-down");
+        } else {
+          icon.classList.remove("fa-chevron-down");
+          icon.classList.add("fa-chevron-up");
+        }
+      });
+    });
+      </script>
     <script src="path/to/handlebars.js"></script>
-    <script src="path/js/script.js"></script>
+    <script src="/public/js/script.js"></script>
   </body>
 
 </html>
