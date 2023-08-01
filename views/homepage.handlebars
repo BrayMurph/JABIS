@@ -229,18 +229,18 @@
                   alt="Image 1"
                   class="w-4/5 h-auto rounded-3xl"
                 />
-                <p class="mt-4 text-left">Hotels</p>
+                <p class="mt-4 text-left"></p>
               </div>
             </div>
             <!-- Placeholder Image 2 -->
             <div class="flex-1 text-center">
               <div class="flex items-center flex-col">
                 <img
-                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                  alt="Image 1"
+                  src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                  alt="Image 2"
                   class="w-4/5 h-auto rounded-3xl"
                 />
-                <p class="mt-4 text-left">Hotels</p>
+                <p class="mt-4 text-left"></p>
               </div>
             </div>
 
@@ -248,8 +248,8 @@
             <div class="flex-1 text-center">
               <div class="flex items-center flex-col">
                 <img
-                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                  alt="Image 1"
+                  src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Image 3"
                   class="w-4/5 h-auto rounded-3xl"
                 />
                 <p class="mt-4 text-left">Hotels</p>
@@ -277,81 +277,48 @@
 <section>
     <div class="flex justify-center items-center">
       <!-- choice section that showcases hotels/ venues-->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-     <div class="bg-white rounded-lg shadow-lg max-w-sm">
-        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
-        <div class="p-6">
-          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
-          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-900 font-bold text-xl">$150</span>
-<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
-  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
-</a>
-          </div>
-        </div>
+  <script id="venue-options" type="text/x-handlebars-template">
+  {{#each hotels}}
+  <div class="bg-white rounded-lg shadow-lg">
+    <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
+    <div class="p-6">
+      <h2 class="text-xl font-bold mb-2">{{name}}</h2>
+      <p class="text-gray-600 mb-4">{{description}}</p>
+      <div class="flex justify-between items-center">
+        <a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+          <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+          <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+          <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+          <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+          <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See Venues</span>
+        </a>
       </div>
-           <div class="bg-white rounded-lg shadow-lg max-w-sm">
-        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
-        <div class="p-6">
-          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
-          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-900 font-bold text-xl">$150</span>
-<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
-  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
-</a>
-          </div>
-        </div>
+    </div>
+  </div>
+  {{/each}}
+</script>
+ <script id="hotel" type="text/x-handlebars-template">
+  {{#each hotels}}
+  <div class="bg-white rounded-lg shadow-lg">
+    <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
+    <div class="p-6">
+      <h2 class="text-xl font-bold mb-2">{{name}}</h2>
+      <p class="text-gray-600 mb-4">{{description}}</p>
+      <div class="flex justify-between items-center">
+        <a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+          <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+          <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
+          <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+          <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
+          <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See hotels</span>
+        </a>
       </div>
-           <div class="bg-white rounded-lg shadow-lg max-w-sm">
-        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
-        <div class="p-6">
-          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
-          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-900 font-bold text-xl">$150</span>
-<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
-  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
-</a>
-          </div>
-        </div>
-      </div>
-           <div class="bg-white rounded-lg shadow-lg max-w-sm">
-        <img src="https://via.placeholder.com/400x200" alt="Hotel 1 Image" class="w-full h-48 object-cover rounded-t-lg" />
-        <div class="p-6">
-          <h2 class="text-xl font-bold mb-2">Hotel 1 Name</h2>
-          <p class="text-gray-600 mb-4">Hotel 1 Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-900 font-bold text-xl">$150</span>
-<a href="#_" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
-  <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
-  <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
-  <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-  <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
-</a>
-          </div>
-        </div>
-      </div>
- 
-</div>
+    </div>
+  </div>
+  {{/each}}
+</script>
 </section>
   <div class=" flex justify-center items-center py-16">
     <div class="w-1/2">
