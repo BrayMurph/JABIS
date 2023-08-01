@@ -32,37 +32,94 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-// import axios from 'axios';
+// API Keys
+const HotelApiKey = process.env.REACT_APP_HOTEL_API_KEY;
+const VenueApiKey = process.env.REACT_APP_VENUE_API_KEY;
 
-
-// Hotel API fetch
-const apiKey = process.env.REACT_APP_HOTEL_API_KEY;
-const apiKey2 = process.env.REACT_APP_VENUE_API_KEY;
-
-app.get('/api', (req, res) => {
-  
-  axios({
-  method: 'get',
-  url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/search?domain=AE&sort_order=REVIEW&locale=en_GB&checkout_date=2023-09-27&region_id=2872&adults_number=1&checkin_date=2023-09-26&available_filter=SHOW_AVAILABLE_ONLY&meal_plan=FREE_BREAKFAST&guest_rating_min=8&price_min=10&page_number=1&children_ages=4%2C0%2C15&amenities=WIFI%2CPARKING&price_max=500&lodging_type=HOTEL%2CHOSTEL%2CAPART_HOTEL&payment_type=PAY_LATER%2CFREE_CANCELLATION&star_rating_ids=3%2C4%2C5',
-  headers: {
-    'X-RapidAPI-Key': `${apiKey}`,
-			'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
-  }
-}).then((response) => {
-  const data = response.data
-  res.json(data.filterMetadata.amenities)
-})
-
-})
-
-app.get('/api2', (req, res) => {
+// Hotel API Search Location
+app.get('/api/Hotels/location-search', (req, res) => {
   axios({
     method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey2}`
+    url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
+    params: {
+      query: `Charlotte`
+    },
+    headers: {
+      'X-RapidAPI-Key': `${HotelApiKey}`,
+      'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+    }
   }).then((response) => {
     const data = response.data
-    res.json(data._embedded.events)
-  })
-})
+    res.json(data.data[0].geoId)
+    const str = res.json(data.data[0].geoId)
+    const arr = str.split('g');
+    const geoID = arr[1];
+    console.log(geoID);
+  });
+});
+  
+// Hotel API Search Hotels
+app.get('/api/Hotels/hotel-search', (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels',
+    params: {
+      geoId: `${geoID}`,
+      checkIn: '2023-08-03',
+      checkOut: '2023-08-05',
+      pageNumber: '1',
+      currencyCode: 'USD'
+    },
+    headers: {
+      'X-RapidAPI-Key': `${HotelApiKey}`,
+      'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+    }
+  }).then((response) => {
+    const data = response.data
+    res.json(data)
+  });
+});
 
+// Hotel API Hotel Details
+app.get('/api/Hotels/hotel-details', (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/getHotelDetails',
+    params: {
+      id: '10542174',
+      checkIn: '2023-08-03',
+      checkOut: '2023-08-05',
+      currency: 'USD'
+    },
+    headers: {
+      'X-RapidAPI-Key': `${HotelApiKey}`,
+      'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+    }
+  }).then((response) => {
+    const data = response.data
+    res.json(data)
+  });
+});
+
+// Venue API Venue Search
+app.get('/api/Venues/venue-search', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app.ticketmaster.com/discovery/v2/venues.json?keyword=UCV&apikey=${VenueApiKey}`
+  }).then((response) => {
+    const data = response.data
+    res.json(data)
+  });
+});
+
+// Venue API Venue Details
+app.get('/api/Venues/venue-details', (req, res) => {
+  axios({
+    method: 'get',
+    url: `https://app.ticketmaster.com/discovery/v2/venues/KovZpZAFnIEA.json?apikey=${VenueApiKey}`
+  }).then((response) => {
+    const data = response.data
+    res.json(data)
+  });
+});
 

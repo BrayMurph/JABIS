@@ -20,3 +20,7 @@ function hotelApi () {
 
 hotelApi();
 
+const str = 'loc;186338;g186338'
+const arr = str.split('g');
+const geoId = arr[1];
+console.log(geoId);
