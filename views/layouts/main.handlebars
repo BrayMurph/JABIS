@@ -1,66 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find places to stay on Travel XP</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+</head>
 
-  <body class="bg-white min-h-screen flex flex-col">
-    <div
-      class="navbar-container bg-white py-4 flex fixed w-full top-0"
-      style="border-bottom: 0.4px solid rgb(211, 203, 203);"
-    >
-      <a
-        href="#"
-        class="navbar-brand text-pink-600 text-3xl font-bold ml-4 md:ml-4"
-      >Travel XP</a>
-      <a
-        href="#signup"
-        class="ml-auto mr-4 text-pink-600 text-xl font-bold hover:underline"
-      >Sign Up</a>
+<body class="bg-white min-h-screen flex flex-col">
+    <div class="navbar-container bg-white py-4 flex fixed w-full top-0" style="border-bottom: 0.4px solid rgb(211, 203, 203);">
+        <a href="#" class="navbar-brand text-pink-600 text-3xl font-bold ml-4 md:ml-4">Travel XP</a>
+        <a href="/signup" class="ml-auto mr-4 text-pink-600 text-xl font-bold hover:underline">Sign Up</a>
+        <a href="/login" class="mr-4 text-pink-600 text-xl font-bold hover:underline">Login</a>
     </div>
     <div class="line-at-bottom bg-black h-1 w-full"></div>
 
     <div class="flex-1">
-      {{!-- {{body}} --}}
-
+        {{!-- The content of the pages will be rendered here --}}
+        {{{body}}}
     </div>
 
-    <footer
-      class="bg-white py-6 text-black text-center"
-      style="border-top: 0.4px solid rgb(0, 0, 0);"
-    >
-      <p class="text-sm">
-        © 2023 Travel XP, Inc.
-        <a href="https://example.com/terms" class="hover:underline">Terms</a>
-        <a href="https://example.com/sitemap" class="hover:underline">Site map</a>
-        <a
-          href="https://example.com/privacy"
-          class="hover:underline"
-        >Privacy</a>
-        <a
-          href="https://example.com/privacy-choices"
-          class="hover:underline"
-        >Your Privacy Choices</a>
-      </p>
+    <footer class="bg-white py-6 text-black text-center" style="border-top: 0.4px solid rgb(0, 0, 0);">
+        <p class="text-sm">
+            © 2023 Travel XP, Inc.
+            <a href="https://example.com/terms" class="hover:underline">Terms</a>
+            <a href="https://example.com/sitemap" class="hover:underline">Site map</a>
+            <a href="https://example.com/privacy" class="hover:underline">Privacy</a>
+            <a href="https://example.com/privacy-choices" class="hover:underline">Your Privacy Choices</a>
+        </p>
     </footer>
     <script src="path/to/handlebars.js"></script>
     <script src="/public/js/script.js"></script>
-  </body>
+</body>
 
 </html>
-<!-- test push with the views folders updated as far as i know-->
