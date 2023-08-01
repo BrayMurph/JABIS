@@ -1,9 +1,6 @@
-const { ensureAuthenticated, fetchVenueData } = require('./authController');
+const { ensureAuthenticated, fetchHotelData } = require('./authController');
 
-
-
-
-router.get('/hotels', async (req, res) => {
+router.get('./hotel-api.js', async (req, res) => {
   try {
     const hotelData = await fetchHotelData();
     
@@ -15,4 +12,3 @@ router.get('/hotels', async (req, res) => {
 
 
 module.exports = router;
-
