@@ -45,6 +45,11 @@ app.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// Route to render the login.handlebars template
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 // express session setup
 app.use(session({
   secret: process.env.secretKey,
