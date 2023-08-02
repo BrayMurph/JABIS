@@ -3,7 +3,7 @@ const { ensureAuthenticated, fetchVenueData } = require('./authController');
 
 
 
-router.get('./venue-api.js', async (req, res) => {
+router.get('/api/Venues', async (req, res) => {
   try {
     const venueData = await fetchVenueData();
     
