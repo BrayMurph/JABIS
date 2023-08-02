@@ -36,37 +36,33 @@ app.listen(port, () => {
 const HotelApiKey = process.env.REACT_APP_HOTEL_API_KEY;
 const VenueApiKey = process.env.REACT_APP_VENUE_API_KEY;
 
-// Hotel API Search Location
-app.get('/api/Hotels/location-search', (req, res) => {
-  axios({
+// Hotel API
+app.get('/api/Hotels', async (req, res) => {
+  const locationRes = await axios({
     method: 'get',
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
     params: {
-      query: `Charlotte`
+      query: `London`
     },
     headers: {
       'X-RapidAPI-Key': `${HotelApiKey}`,
       'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
     }
-  }).then((response) => {
-    const data = response.data
-    res.json(data.data[0].geoId)
-    const str = res.json(data.data[0].geoId)
-    const arr = str.split('g');
-    const geoID = arr[1];
-    console.log(geoID);
   });
-});
   
-// Hotel API Search Hotels
-app.get('/api/Hotels/hotel-search', (req, res) => {
-  axios({
+  const locationData = locationRes.data.data[0].geoId;
+  const str = locationData;
+  const arr = str.split('g');
+  const geoID = arr[1];
+  // return res.json(geoID) // returns the GeoID that I need to put in hotelRes
+
+  const hotelRes = await axios({
     method: 'get',
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels',
     params: {
       geoId: `${geoID}`,
-      checkIn: '2023-08-03',
-      checkOut: '2023-08-05',
+      checkIn: '2023-08-07',
+      checkOut: '2023-08-09',
       pageNumber: '1',
       currencyCode: 'USD'
     },
@@ -74,19 +70,16 @@ app.get('/api/Hotels/hotel-search', (req, res) => {
       'X-RapidAPI-Key': `${HotelApiKey}`,
       'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
     }
-  }).then((response) => {
-    const data = response.data
-    res.json(data)
   });
-});
 
-// Hotel API Hotel Details
-app.get('/api/Hotels/hotel-details', (req, res) => {
-  axios({
+  const hotelData = hotelRes.data.data.data[0].id;
+  // return res.json(hotelData); // Pulls the id of the first hotel
+
+  const hotelDetails = await axios({
     method: 'get',
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/getHotelDetails',
     params: {
-      id: '10542174',
+      id: `${hotelData}`,
       checkIn: '2023-08-03',
       checkOut: '2023-08-05',
       currency: 'USD'
@@ -95,21 +88,29 @@ app.get('/api/Hotels/hotel-details', (req, res) => {
       'X-RapidAPI-Key': `${HotelApiKey}`,
       'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
     }
-  }).then((response) => {
-    const data = response.data
-    res.json(data)
   });
-});
 
-// Venue API Venue Search
-app.get('/api/Venues/venue-search', (req, res) => {
-  axios({
+  return res.json(hotelDetails.data);
+});
+  
+
+// Venue API
+app.get('/api/Venues/venue-search', async (req, res) => {
+  const venueRes = await axios({
     method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/venues.json?keyword=UCV&apikey=${VenueApiKey}`
-  }).then((response) => {
-    const data = response.data
-    res.json(data)
-  });
+    url: `https://app.ticketmaster.com/discovery/v2/venues.json?apikey=${VenueApiKey}&keyword=UCV HTTP/1.1`,
+    headers: {
+      'Host': 'app.ticketmaster.com',
+      'X-Target-URI': 'http://app.ticketmaster.com'
+    }
+  })
+  
+  return res.json(venueRes.data.__embedded)
+
+  // const venueData = await axios({
+  //   method: 'get',
+  //   url: `https://app.ticketmaster.com/discovery/v2/venues/KovZpZAFnIEA.json?apikey=${VenueApiKey}`
+  // })
 });
 
 // Venue API Venue Details
