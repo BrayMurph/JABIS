@@ -92,35 +92,17 @@ app.get('/api/Hotels', async (req, res) => {
 
   return res.json(hotelDetails.data);
 });
-  
 
 // Venue API
-app.get('/api/Venues/venue-search', async (req, res) => {
+app.get('/api/Venues', async (req, res) => {
   const venueRes = await axios({
     method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/venues.json?apikey=${VenueApiKey}&keyword=UCV HTTP/1.1`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${VenueApiKey}&city=Charlotte`,
     headers: {
       'Host': 'app.ticketmaster.com',
       'X-Target-URI': 'http://app.ticketmaster.com'
     }
-  })
-  
-  return res.json(venueRes.data.__embedded)
-
-  // const venueData = await axios({
-  //   method: 'get',
-  //   url: `https://app.ticketmaster.com/discovery/v2/venues/KovZpZAFnIEA.json?apikey=${VenueApiKey}`
-  // })
-});
-
-// Venue API Venue Details
-app.get('/api/Venues/venue-details', (req, res) => {
-  axios({
-    method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/venues/KovZpZAFnIEA.json?apikey=${VenueApiKey}`
-  }).then((response) => {
-    const data = response.data
-    res.json(data)
   });
-});
-
+  
+  return res.json(venueRes.data._embedded.events[0]);
+  });
