@@ -45,13 +45,17 @@ app.listen(port, () => {
 const HotelApiKey = process.env.REACT_APP_HOTEL_API_KEY;
 const VenueApiKey = process.env.REACT_APP_VENUE_API_KEY;
 
+// API to Front End
+const city = document.getElementById("location").value;
+
+
 // Hotel API
 app.get('/api/Hotels', async (req, res) => {
   const locationRes = await axios({
     method: 'get',
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
     params: {
-      query: `London`
+      query: `${city}`
     },
     headers: {
       'X-RapidAPI-Key': `${HotelApiKey}`,
@@ -106,7 +110,7 @@ app.get('/api/Hotels', async (req, res) => {
 app.get('/api/Venues', async (req, res) => {
   const venueRes = await axios({
     method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${VenueApiKey}&city=Charlotte`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${VenueApiKey}&city=${city}`,
     headers: {
       'Host': 'app.ticketmaster.com',
       'X-Target-URI': 'http://app.ticketmaster.com'
