@@ -35,4 +35,4 @@ User.prototype.verifyPassword = function (password, callback) {
 };
 
 // exports the User model
-module.exports = User
+module.exports = User;

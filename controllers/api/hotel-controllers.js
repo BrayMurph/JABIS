@@ -1,6 +1,6 @@
 const { ensureAuthenticated, fetchHotelData } = require('./authController');
 
-router.get('./hotel-api.js', async (req, res) => {
+router.get('/api/Hotels', async (req, res) => {
   try {
     const hotelData = await fetchHotelData();
     
