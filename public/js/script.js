@@ -35,3 +35,24 @@
     scheduleAppointment();
   });
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Find the link to hotel1.handlebars
+  const hotel1Link = document.getElementById("hotel1Link");
+
+  // Add a click event listener to the link
+  hotel1Link.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent the default link behavior
+
+    // Use fetch or any other AJAX method to load the hotel1.handlebars content
+    fetch("/views/hotel1.handlebars")
+      .then((response) => response.text())
+      .then((html) => {
+        // Insert the loaded content into the page
+        document.getElementById("hotelContent").innerHTML = html;
+      })
+      .catch((error) => {
+        console.error("Error fetching hotel1.handlebars:", error);
+      });
+  });
+});
