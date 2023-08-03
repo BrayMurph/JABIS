@@ -1,4 +1,6 @@
-const { ensureAuthenticated, fetchHotelData } = require('./authController');
+const { ensureAuthenticated, fetchHotelData } = require('../authController');
+
+const router = require('express').Router();
 
 router.get('/api/Hotels', async (req, res) => {
   try {
