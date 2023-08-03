@@ -17,7 +17,7 @@ const router = require('express').Router();
 require("dotenv").config();
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // Create an instance of Handlebars engine
 const hbs = exphbs.create({
@@ -94,37 +94,13 @@ sequelize.sync({ force:false })
 const HotelApiKey = process.env.REACT_APP_HOTEL_API_KEY;
 const VenueApiKey = process.env.REACT_APP_VENUE_API_KEY;
 
-// API to Front End
-// const locationSearch = async (event) => {
-//   event.preventDefault();
-
-//   const city = document.querySelector('#location').value.trim();
-//   if (city) {
-//     const response = await fetch('/', {
-//       method: 'POST',
-//       body: JSON.stringify({city}),
-//       headers: {'Content-Type': 'application/json'},
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/api');
-//     } else {
-//       alert('Failed to input city.');
-//     }
-//   }
-// }
-
-// document 
-//   .querySelector('#searchForm')
-//   .addEventListener('submit', locationSearch);
-
 // Hotel API
 app.get('/api', async (req, res) => {
   const locationRes = await axios({
     method: 'get',
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
     params: {
-      query: `Charlotte`
+      query: req.body.city
     },
     headers: {
       'X-RapidAPI-Key': `${HotelApiKey}`,
@@ -132,7 +108,7 @@ app.get('/api', async (req, res) => {
     }
   });
   
-  const locationData = locationRes.data.data[0].geoId;
+  const locationData = locationRes.data.data.geoId;
   const str = locationData;
   const arr = str.split('g');
   const geoID = arr[1];
@@ -143,8 +119,8 @@ app.get('/api', async (req, res) => {
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels',
     params: {
       geoId: `${geoID}`,
-      checkIn: '2023-08-07',
-      checkOut: '2023-08-09',
+      checkIn: req.body.checkIn,
+      checkOut: req.body.checkOut,
       pageNumber: '1',
       currencyCode: 'USD'
     },
@@ -162,8 +138,8 @@ app.get('/api', async (req, res) => {
     url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/getHotelDetails',
     params: {
       id: `${hotelData}`,
-      checkIn: '2023-08-03',
-      checkOut: '2023-08-05',
+      checkIn: req.body.checkIn,
+      checkOut: req.body.checkOut,
       currency: 'USD'
     },
     headers: {
@@ -176,7 +152,7 @@ app.get('/api', async (req, res) => {
 
   const venueRes = await axios({
     method: 'get',
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${VenueApiKey}&city=Charlotte`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${VenueApiKey}&city=${req.body.city}`,
     headers: {
       'Host': 'app.ticketmaster.com',
       'X-Target-URI': 'http://app.ticketmaster.com'
