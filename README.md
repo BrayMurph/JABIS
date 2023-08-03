@@ -15,6 +15,7 @@
 - [Sources](#sources)🔎
 - [License](#license)💳
 - [Heroku](#heroku)
+- [Contributions](#contributions)
 - [Deployed Site](#deployed-site)🎞
 - [Repository](#repository)📂
 - [Tools](#tools)🛠
@@ -79,6 +80,14 @@ To deploy the Tech Blog application on Heroku, follow these steps:
 6. Set up environment variables on Heroku. If your application requires environment variables (e.g., database connection), you can set them using the Heroku CLI or through the Heroku dashboard.
 
 ##
+
+## Contributions<a name="contributions"></a>
+
+- Asia Kemp
+- Brayden Murphy
+- Seth Davis
+- Joseph Rudasill
+- Jordan Isaiah
 
 ## Tools<a name="tools"></a>
 
