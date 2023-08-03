@@ -2,6 +2,7 @@
 
 ## Overview
 
+Travel XP is a comprehensive travel website that allows users to view, compare, and book hotels and venues for their travel destinations. With a user-friendly interface and a wide range of features, Travel XP makes planning your next trip a breeze.
 <br>
 
 ##
@@ -22,6 +23,8 @@
 
 ## Key Features <a name="key-features"></a>
 
+Travel XP is the ultimate travel website offering an extensive database of hotels and venues worldwide. With its user-friendly interface, intuitive navigation, and advanced search options, finding the perfect accommodation or venue is a breeze. Real-time availability updates, secure payment processing, and personalized recommendations ensure a seamless booking experience. Travel XP's review system allows users to read authentic feedback from previous guests, while excellent customer support is always ready to assist. With mobile responsiveness, multi-language, and currency support, Travel XP caters to a global audience, making it the go-to platform for stress-free travel planning and booking.
+
 ## Installation <a name="installation"></a>
 
 To install and run Travel XP, follow these steps: <br>
@@ -36,6 +39,8 @@ To install and run Travel XP, follow these steps: <br>
 8. Access the application at [http://localhost:3001](http://localhost:3001)
 
 ## Usage <a name="usage"></a>
+
+Simply look for the right hotelor venue of your choosing, and if you would like to keep it, you may sign up so that it is kept!
 
 ## Contributing <a name="contributing"></a>
 
