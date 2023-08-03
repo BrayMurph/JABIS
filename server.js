@@ -172,4 +172,4 @@ app.get('/api', async (req, res) => {
   return res.json({hotelName, hotelUrl, hotelPrice, venueName, venuePic, venueUrl, venuePriceMin, venuePriceMax});
 });
 
-module.exports = app;
+module.exports = {hotelName, hotelUrl, hotelPrice, venueName, venuePic, venueUrl, venuePriceMin, venuePriceMax};
