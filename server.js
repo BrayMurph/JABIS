@@ -1,8 +1,17 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./models/User');
+const authController = require('./controllers/authController');
+const routes = require('./controllers');
+
 const axios = require("axios");
 require("dotenv").config();
+
 
 const app = express();
 const port = 3001;
@@ -32,12 +41,47 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Route to render the main.handlebars template
-app.get("/", (req, res) => {
-  res.render("layouts/main");
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
 });
+
+// Route to render the signup.handlebars template
+app.get("/signup", (req, res) => {
+  res.render("signup", {layout: "main"});
+});
+
+// Route to render the login.handlebars template
+app.get("/login", (req, res) => {
+  res.render("login", {layout: "main"});
+});
+
+// express session setup
+app.use(session({
+  secret: process.env.secretKey,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// PassportConfiguration
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// authentication routes
+app.post('/login', authController.login);
+app.get('/logout', authController.logout);
+// add route for registration
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+
 });
+
+});
+
 
