@@ -405,11 +405,10 @@
       <div class="py-8">
         <h2
           class="text-3xl font-bold mb-4 flex justify-center items-center"
-        >Family-friendly stays with full kitchens</h2>
+        >Family-friendly stays </h2>
         <div>
-        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. At cumque assumenda
-          adipisci praesentium, quos repudiandae quibusdam, aspernatur</p>
+        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">
+
           </div>
           
       </div>
@@ -417,8 +416,9 @@
 <section>
     <div class="flex justify-center items-center">
       <!-- choice section that showcases hotels/ venues-->
-  <script id="venue-options" type="text/x-handlebars-template">
-  {{#each hotels}}
+<!-- For Venues -->
+<script id="venue-options" type="text/x-handlebars-template">
+  {{#each venues}}
   <div class="bg-white rounded-lg shadow-lg">
     <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
     <div class="p-6">
@@ -438,7 +438,9 @@
   </div>
   {{/each}}
 </script>
- <script id="hotel" type="text/x-handlebars-template">
+
+<!-- For Hotels -->
+<script id="hotel-options" type="text/x-handlebars-template">
   {{#each hotels}}
   <div class="bg-white rounded-lg shadow-lg">
     <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
@@ -452,7 +454,7 @@
           <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
           <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
           <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See hotels</span>
+          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See Hotels</span>
         </a>
       </div>
     </div>
