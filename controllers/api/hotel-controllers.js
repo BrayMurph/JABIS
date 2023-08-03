@@ -1,14 +1,13 @@
-const { ensureAuthenticated, fetchHotelData } = require('./authController');
+const express = require('express');
+const router = express.Router();
 
-router.get('/api/Hotels', async (req, res) => {
+router.get('/api', (req, res) => {
   try {
-    const hotelData = await fetchHotelData();
-    
-    res.json(hotelData);
+
+    res.json({ message: 'This is a sample response' });
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 
 module.exports = router;
