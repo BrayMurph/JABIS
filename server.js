@@ -1,12 +1,17 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const authController = require('./controllers/authController');
 const routes = require('./controllers');
+
+const axios = require("axios");
+require("dotenv").config();
+
 
 const app = express();
 const port = 3001;
@@ -74,4 +79,9 @@ app.get('/logout', authController.logout);
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+
 });
+
+});
+
+
