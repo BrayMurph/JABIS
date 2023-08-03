@@ -1,17 +1,12 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 const session = require('express-session');
 const passport = require("./config/passport");
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const authController = require('./controllers/authController');
 const routes = require('./controllers');
-<<<<<<< HEAD
 const axios = require("axios");
 const signupController = require('./controllers/signupController');
 const bodyParser = require('body-parser');
@@ -19,12 +14,6 @@ const db = require("./models/User");
 const sequelize = require('./config/connection')
 
 require("dotenv").config();
-=======
-
-const axios = require("axios");
-require("dotenv").config();
-
->>>>>>> main
 
 const app = express();
 const port = 3001;
