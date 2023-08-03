@@ -60,6 +60,16 @@ Simply look for the right hotelor venue of your choosing, and if you would like 
 - https://handlebarsjs.com/
 - https://devdocs.io/handlebars/
 - https://www.jsdelivr.com/
+- https://www.passportjs.org/docs/
+- https://github.com/WarriorofZarona/covid19-test-site-finder/blob/master/server.js
+- https://itswagi.medium.com/how-to-get-started-with-express-sequelize-and-passport-cc405391a3de
+- https://code.tutsplus.com/using-passport-with-sequelize-and-mysql--cms-27537t
+- https://github.com/Marienoir/Passport-Sequelize-tuts/blob/main/app/config/passport/passport.js
+- https://medium.com/@saranyamohandas2/passportjs-with-mysql-sequelize-and-expressjs-56fb903aaf8f
+- https://www.youtube.com/watch?v=JG-8Iy4H-gU
+- https://github.com/JasonDeving/Express-passport-sequelize-mysql
+- https://stackoverflow.com/questions/49771925/login-using-sequelize-and-passport-in-nodejs
+- https://www.npmjs.com/package/passport-local-sequelize?activeTab=readme
 
 ## License <a name="license"></a>
 
