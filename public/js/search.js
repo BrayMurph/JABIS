@@ -13,7 +13,7 @@ const searchFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/api');
         } else {
             alert('Need to fill in the city, checkIn, and checkOut');
         }
