@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Route to render the main.handlebars template
-app.get("/homepage", (req, res) => {
+app.get("/", (req, res) => {
   res.render("homepage");
 });
 
@@ -73,12 +73,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // authentication routes
-// app.post('/login', authController.login);
 // app.get('/logout', authController.logout);
 
 
 // Handle signup form submission using the new signup controller
 app.post('/signup', signupController.signup);
+
+require("./routes/signin")(app);
 
 // Start the server
 sequelize.sync({ force:false })
