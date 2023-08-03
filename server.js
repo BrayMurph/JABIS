@@ -2,12 +2,17 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require('express-session');
-const passport = require('passport');
+const passport = require("./config/passport");
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const authController = require('./controllers/authController');
 const routes = require('./controllers');
 const axios = require("axios");
+const signupController = require('./controllers/signupController');
+const bodyParser = require('body-parser');
+const db = require("./models/User");
+const sequelize = require('./config/connection')
+
 require("dotenv").config();
 
 const app = express();
@@ -37,6 +42,10 @@ app.set("views", path.join(__dirname, "views"));
 // Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, "public")));
 
+// Parse incoming request bodies in a middleware before your routes
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // Route to render the main.handlebars template
 app.get("/homepage", (req, res) => {
   res.render("homepage");
@@ -63,17 +72,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// PassportConfiguration
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 // authentication routes
-app.post('/login', authController.login);
-app.get('/logout', authController.logout);
-// add route for registration
+// app.post('/login', authController.login);
+// app.get('/logout', authController.logout);
+
+
+// Handle signup form submission using the new signup controller
+app.post('/signup', signupController.signup);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+sequelize.sync({ force:false })
+.then(() => {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
 });
+
