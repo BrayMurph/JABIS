@@ -12,30 +12,7 @@
   </style>
 </head>
  
- <!-- Google Maps Section -->
-<section class="container mx-auto py-28">
-  <div class="w-full bg-gray-400 h-96 mb-8">
-    <!-- Google Maps code goes here -->
-    <div id="map" style="height: 100%;"></div>
-  </div>
-</section>
 
-<script>
-  // Initialize and display the map
-  function initMap() {
-    // Create a map centered on a specific location (e.g., New York City)
-    const mapOptions = {
-      center: { lat: 40.7128, lng: -74.0060 }, // Update the coordinates as needed
-      zoom: 12, // Adjust the zoom level as needed
-    };
-    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  }
-  
-  // Call the initMap function once the Google Maps API is loaded
-  window.onload = function () {
-    initMap();
-  };
-</script>
   </section>
 
     </div>
@@ -90,82 +67,6 @@
 <section>
 
 
-  <script>
-    // Initialize and display the map
-    let map;
-
-    function initMap() {
-      // Create a map centered on a specific location (e.g., New York City)
-      const mapOptions = {
-        center: { lat: 40.7128, lng: -74.0060 }, // Update the coordinates as needed
-        zoom: 12, // Adjust the zoom level as needed
-      };
-      map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-      // Create the search box and link it to the UI element.
-      const input = document.getElementById("search-input");
-      const searchBox = new google.maps.places.SearchBox(input);
-
-      // Bias the SearchBox results towards current map's viewport.
-      map.addListener("bounds_changed", () => {
-        searchBox.setBounds(map.getBounds());
-      });
-
-      // Listen for the event when the user selects a prediction from the search box.
-      searchBox.addListener("places_changed", () => {
-        const places = searchBox.getPlaces();
-
-        if (places.length === 0) {
-          return;
-        }
-
-        // Clear out any existing markers on the map.
-        const markers = [];
-        markers.forEach((marker) => {
-          marker.setMap(null);
-        });
-        markers.length = 0;
-
-        // For each place, get the icon, name, and location.
-        const bounds = new google.maps.LatLngBounds();
-        places.forEach((place) => {
-          if (!place.geometry || !place.geometry.location) {
-            console.log("Returned place contains no geometry");
-            return;
-          }
-
-          const icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25),
-          };
-
-          // Create a marker for each place.
-          const marker = new google.maps.Marker({
-            map,
-            icon,
-            title: place.name,
-            position: place.geometry.location,
-          });
-
-          markers.push(marker);
-
-          if (place.geometry.viewport) {
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-          }
-        });
-        map.fitBounds(bounds);
-      });
-    }
-
-    // Call the initMap function once the Google Maps API is loaded
-    window.onload = function () {
-      initMap();
-    };
   </script>
 
 </body>
