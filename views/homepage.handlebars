@@ -1,143 +1,3 @@
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find places to stay on Travel XP</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find places to stay on Travel XP</title>
-    <link href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body class="bg-gray-100">
-    <div class="navbar-container bg-white py-4 flex fixed w-full top-0">
-      <a
-        href="#"
-        class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-32"
-      >Travel XP</a>
-    </div>
-
-    <div class="container mx-auto px-8 mt-16 md:flex">
-      <!-- Schedule Container -->
-      <div class="schedule-container bg-gray-100 py-20 flex md:w-4/5 md:mr-2">
-        <!-- Add an id attribute to the form to access it in JavaScript -->
-        <form
-          action="/s"
-          target="_blank"
-          role="search"
-          autocomplete="off"
-          class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full"
-          id="searchForm"
-        >
-          <div class="header mb-8">
-            <h1 class="text-4xl font-bold">Find places to stay on Travel XP</h1>
-            <div class="subheading text-gray-600">
-              Discover entire hotels and amusements nearby, perfect for any
-              trip.
-            </div>
-          </div>
-
-          <div class="search-location mb-6">
-            <label for="location" class="block font-bold">Location</label>
-            <div>
-              <input
-                type="text"
-                id="location"
-                placeholder="Anywhere"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-              />
-            </div>
-          </div>
-
-          <div
-            class="search-dates mb-6 flex flex-col md:flex-row md:justify-between"
-          >
-            <div class="w-full md:w-48 md:mr-2 mb-4 md:mb-0">
-              <label for="checkin" class="block font-bold">Check-in</label>
-              <div>
-                <input
-                  type="date"
-                  id="checkin"
-                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-                />
-              </div>
-            </div>
-            <div class="w-full md:w-48 md:ml-2">
-              <label for="checkout" class="block font-bold">Check-out</label>
-              <div>
-                <input
-                  type="date"
-                  id="checkout"
-                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="search-adults mb-6">
-            <label for="adults" class="block font-bold">Adults</label>
-            <div>
-              <select
-                id="adults"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-              >
-                <option value="1">1</option>
-                <option value="2" selected>2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="search-children mb-6">
-            <label for="children" class="block font-bold">Children</label>
-            <div>
-              <select
-                id="children"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-              >
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="search-button bg-pink-600 text-white py-4 px-8 rounded-md text-xl font-bold hover:bg-pink-700 focus:outline-none"
-          >Search</button>
-        </form>
-      </div>
-
-      <!-- Image Container -->
-      <div class="w-full md:w-2/2 py-32">
-        <img
-          src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Image"
-          class="w-full h-auto"
-        />
-      </div>
-    </div>
-
-    <div class="container mx-auto px-8">
-      <p class="my-4"></p>
-    </div>
-
-    <script src="path/to/handlebars.js"></script>
-    <script src="path/js/script.js"></script>
-  </body>
 
 <html lang="en">
 
@@ -405,11 +265,10 @@
       <div class="py-8">
         <h2
           class="text-3xl font-bold mb-4 flex justify-center items-center"
-        >Family-friendly stays with full kitchens</h2>
+        >Family-friendly stays </h2>
         <div>
-        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. At cumque assumenda
-          adipisci praesentium, quos repudiandae quibusdam, aspernatur</p>
+        <p class="text-gray-800 mb-4 ml-12 flex justify-center items-center">
+
           </div>
           
       </div>
@@ -417,8 +276,9 @@
 <section>
     <div class="flex justify-center items-center">
       <!-- choice section that showcases hotels/ venues-->
-  <script id="venue-options" type="text/x-handlebars-template">
-  {{#each hotels}}
+<!-- For Venues -->
+<script id="venue-options" type="text/x-handlebars-template">
+  {{#each venues}}
   <div class="bg-white rounded-lg shadow-lg">
     <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
     <div class="p-6">
@@ -438,7 +298,9 @@
   </div>
   {{/each}}
 </script>
- <script id="hotel" type="text/x-handlebars-template">
+
+<!-- For Hotels -->
+<script id="hotel-options" type="text/x-handlebars-template">
   {{#each hotels}}
   <div class="bg-white rounded-lg shadow-lg">
     <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
@@ -452,7 +314,7 @@
           <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
           <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
           <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See hotels</span>
+          <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See Hotels</span>
         </a>
       </div>
     </div>

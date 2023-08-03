@@ -1,10 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const { ensureAuthenticated, fetchVenueData } = require('../authController');
+const router = require('express').Router();
 
-router.get('/venue-api', (req, res) => {
+router.get('/api/Venues', async (req, res) => {
   try {
+   
+    const venueData = await fetchVenueData();
+
     
-    res.json({ message: 'This is a sample response' });
+    res.json(venueData);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
