@@ -42,12 +42,12 @@ app.get("/homepage", (req, res) => {
 
 // Route to render the signup.handlebars template
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", {layout: "main"});
 });
 
 // Route to render the login.handlebars template
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {layout: "main"});
 });
 
 // express session setup
@@ -67,8 +67,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // authentication routes
-// app.post('/login', authController.login);
-// app.get('/logout', authController.logout);
+app.post('/login', authController.login);
+app.get('/logout', authController.logout);
 // add route for registration
 
 // Start the server
