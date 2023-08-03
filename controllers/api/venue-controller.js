@@ -1,4 +1,4 @@
-const { ensureAuthenticated, fetchVenueData } = require('./authController');
+const { ensureAuthenticated, fetchVenueData } = require('../authController');
 
 
 

@@ -3,7 +3,7 @@
 // const authController = require('./authController');
 // const authRoute = require('./authController');
 
-// router.use('/auth', authController);
+// const router = express.Router();
 
 // module.exports = router;
 
@@ -20,4 +20,3 @@ router.use('/venues', venueRoutes);
 router.use('/hotels', hotelRoutes);
 
 module.exports = router;
-
