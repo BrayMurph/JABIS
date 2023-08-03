@@ -7,6 +7,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const authController = require('./controllers/authController');
 const routes = require('./controllers');
+const axios = require("axios");
+require("dotenv").config();
 
 const app = express();
 const port = 3001;
