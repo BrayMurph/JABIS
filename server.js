@@ -14,6 +14,7 @@ const db = require("./models/User");
 const sequelize = require('./config/connection')
 const router = require('express').Router();
 const userRoutes = require('./controllers/api/user-routes');
+const passportpackage = require('passport');
 
 require("dotenv").config();
 
