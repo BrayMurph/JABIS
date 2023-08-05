@@ -49,6 +49,18 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// express session setup
+app.use(session({
+  secret: process.env.secretKey,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Route to render the main.handlebars template
 app.get("/", (req, res) => {
   res.render("homepage");
@@ -66,20 +78,21 @@ app.get("/login", (req, res) => {
 
 // Route to logout
 app.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
+  req.logout((err) => {
+    if (err) {
+      console.error('Error during logout:', err);
+      return res.redirect('/');
+    }
+    console.log('User logged out successfully');
+    return res.redirect('/');
+  });
 });
 
-// express session setup
-app.use(session({
-  secret: process.env.secretKey,
-  resave: false,
-  saveUninitialized: false,
-}));
-
-// passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+// Handle logging in
+app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
+  // If authentication is successful, respond with user information or any data you want
+  res.json({ user: req.user });
+});
 
 // authentication routes
 // app.get('/logout', authController.logout);
