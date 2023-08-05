@@ -75,6 +75,7 @@ app.use(passport.session());
 
 // authentication routes
 // app.get('/logout', authController.logout);
+app.use('/api/users', userRoutes);
 
 
 // Handle signup form submission using the new signup controller
