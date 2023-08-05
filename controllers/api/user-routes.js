@@ -57,5 +57,13 @@ router.put('/profile', async (req, res) => {
   }
 });
 
+// Route to check if the user is logged in
+router.get('/checkLoggedIn', (req, res) => {
+  if (req.user) {
+    res.status(200).json({ isLoggedIn: true});
+  } else {
+    res.status(200).json({ isLoggedIn: false});
+  }
+});
 
 module.exports = router;
