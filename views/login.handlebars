@@ -12,13 +12,16 @@
       />
 <div>
     <h1>Login</h1>
+    {{!-- remove action method --}}
     <form action="/login" method="post" class="login-form">
     <label for="username">Username:</label>
+    {{!-- use id to capture values for body of api call --}}
     <input type="text" id="username" name="username" required>
 
       <label for="password" class="block mb-2">Password:</label>
       <input
         type="password"
+        {{!-- use id to capture values for body of api call --}}
         id="password"
         name="password"
         required
@@ -30,5 +33,6 @@
         class="bg-pink-600 text-white px-4 py-2 rounded-md"
       >Log In</button>
     </form>
-  </div>
+  </div> 
 </div>
+{{!-- add link to js login.js file --}}

@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+// const router = express.Router();
 
 const { ensureAuthenticated, fetchVenueData } = require('../authController');
 const router = require('express').Router();
