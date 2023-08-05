@@ -63,6 +63,12 @@ app.get("/login", (req, res) => {
   res.render("login", {layout: "main"});
 });
 
+// Route to logout
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 // express session setup
 app.use(session({
   secret: process.env.secretKey,
