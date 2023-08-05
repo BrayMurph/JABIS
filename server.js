@@ -56,6 +56,13 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+// Route to render the signup.handlebars template
+app.get("/signup", (req, res) => {
+  res.render("signup", {layout: "main"});
+});
+
+app.post('/signup', signupController.signup);
+
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -66,10 +73,6 @@ app.get("/", (req, res) => {
   res.render("homepage");
 });
 
-// Route to render the signup.handlebars template
-app.get("/signup", (req, res) => {
-  res.render("signup", {layout: "main"});
-});
 
 // Route to render the login.handlebars template
 app.get("/login", (req, res) => {
@@ -100,7 +103,7 @@ app.use('/api/users', userRoutes);
 
 
 // Handle signup form submission using the new signup controller
-app.post('/signup', signupController.signup);
+
 
 require("./routes/signin")(app);
 
