@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find places to stay on Travel XP</title>
+  <title>Find Venues To Book </title>
  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -78,89 +78,39 @@
 
 
   <section>
-    <div class="content-container flex justify-center items-center">
+    <div class="content-container flex justify-center items-center ">
       <!-- Schedule Container -->
-      <div class="schedule-container bg-white py-32 px-32 w-full md:w-1/2 md:ml-64 ">
+      <div class="schedule-container bg-white py-32 px-32  w-full md:w-1/2 md:ml-64 ">
         <form
           action="/s"
           target="_blank"
           role="search"
           autocomplete="off"
-          class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full"
+          class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full pb-24"
           id="searchForm"
         >
           <!-- Existing form code here -->
           <div class="header mb-8">
-            <h1 class="text-4xl font-bold">Find places to stay on Travel XP</h1>
-            <div class="subheading text-gray-600">
-              Discover entire hotels and amusements nearby, perfect for any
-              trip.
+            <h1 class="text-4xl font-bold pb-16">Find beautiful venues to book!</h1>
+            <div class="subheading text-gray-600 pb-4">
+              Discover Venues that have beautiful, scenic views, to those that are great places to catch up.
             </div>
           </div>
 
-          <div class="search-location mb-6">
-            <label for="location" class="block font-bold">Location</label>
+          <div class="search-location mb-6 pb-12">
+            <label for="location" class="block font-bold pb-8">Location</label>
             <div>
               <input
                 type="text"
                 id="location"
-                placeholder="Anywhere"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
+                placeholder=""
+                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none "
               />
             </div>
           </div>
 
-          <div class="search-dates mb-6 flex flex-col md:flex-row md:justify-between">
-            <div class="w-full md:w-48 md:mr-2 mb-4 md:mb-0">
-              <label for="checkin" class="block font-bold">Check-in</label>
-              <div>
-                <input
-                  type="date"
-                  id="checkin"
-                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-                />
-              </div>
-            </div>
-            <div class="w-full md:w-48 md:ml-2 ">
-              <label for="checkout" class="block font-bold">Check-out</label>
-              <div>
-                <input
-                  type="date"
-                  id="checkout"
-                  class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-                />
-              </div>
-            </div>
-          </div>
 
-          <div class="search-adults mb-6">
-            <label for="adults" class="block font-bold">Adults</label>
-            <div>
-              <select
-                id="adults"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-              >
-                <option value="1">1</option>
-                <option value="2" selected>2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="search-children mb-6">
-            <label for="children" class="block font-bold">Children</label>
-            <div>
-              <select
-                id="children"
-                class="w-full p-2 border border-gray-300 rounded-md focus:border-pink-600 focus:outline-none"
-              >
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
-          </div>
-<a href="/" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+<a href="/" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg  ">
   <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
   <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
   <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
@@ -168,11 +118,12 @@
   <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
   <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg" type="submit">Search</span>
 </a>
+
   </form>
       </div>
 <div class="w-full md:w-full py-64 md:pr-96" id="home-picture">
   <img
-    src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    src="https://images.unsplash.com/photo-1617079114138-9cf245e006c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     height="700"
     width="900"
     alt="Image"
@@ -189,7 +140,7 @@
         <p class="text-gray-800 text-3xl">
           <b>Enjoy some flexibility.</b>
           <br />
-          If your plans change, stays with flexible cancellation make it simple
+          If your plans change, venues with flexible cancellation make it simple
           to rebook.
         </p>
       </div>
@@ -197,8 +148,8 @@
       <!-- Container 2 -->
       <div class="w-full md:w-1/3 px-4 py-8">
         <p class="text-gray-800 text-3xl">
-          <b>Over 7 million active listings</b><br />Join over 1 billion other
-          guests who have discovered getaways in over 220 countries and
+          <b>Thousands of active listings</b><br />Join over 1 millions other
+          guests who have discovered venues in over 100 cities and
           destinations.
         </p>
       </div>
@@ -206,9 +157,7 @@
       <!-- Container 3 -->
       <div class="w-full md:w-1/3 px-4 py-8">
         <p class="text-gray-800 text-3xl">
-          <b>100+ filters for customized stays</b><br />Choose your price range,
-          the number of rooms you want, and other important features to locate
-          the perfect stay for you.
+          <b>The right venue for you! </b> <br/>Whether you want to book early in the morning, or book at the last minute near midnight, we have the right venue for you!</b><br />
         </p>
       </div>
     </div>
@@ -218,39 +167,39 @@
       <div class="py-8">
         <h2
           class="text-3xl font-bold mb-4 flex justify-center items-center py-16"
-        >Tall, Spacious, we have it all!</h2>
+        >Upscale, or casual, we have it all!</h2>
         <div class="flex justify-center items-center">
           <div class="grid grid-cols-3 md:flex md:flex-wrap gap-4">
             <!-- Placeholder Image 1 -->
             <div class="flex-1 text-center">
               <div class="flex items-center flex-col">
                 <img
-                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  src="https://images.unsplash.com/photo-1618597017017-7ce39f28eb41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
                   alt="Image 1"
                   class="w-4/5 h-auto rounded-3xl"
                 />
                 <p class="mt-4 text-left"></p>
               </div>
-               <a href="hotels.handlebars" class="mt-6  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+               {{!-- <a href="hotels.handlebars" class="mt-6  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
       <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
       <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
       <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-      <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See Hotels</span> <!-- Update the text for the venues button -->
-    </a>
+      <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See venues</span> <!-- Update the text for the venues button -->
+    </a> --}}
             </div>
             <!-- Placeholder Image 2 -->
             <div class="flex-1 text-center">
               <div class="flex items-center flex-col">
                 <img
-                  src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  src="https://images.unsplash.com/photo-1654166727557-9b587fdd664b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1156&q=80"
                   alt="Image 2"
                   class="w-4/5 h-auto rounded-3xl"
                 />
                 <p class="mt-4 text-left"></p>
               </div>
-               <a href="venues.handlebars" class="mt-6  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+               <a href="venues.handlebars" class="mb-32  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
       <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
@@ -264,20 +213,20 @@
             <div class="flex-1 text-center">
               <div class="flex items-center flex-col">
                 <img
-                  src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  src="https://images.pexels.com/photos/239975/pexels-photo-239975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Image 3"
                   class="w-4/5 h-auto rounded-3xl"
                 />
                 <p class="mt-4 text-left"></p>
               </div>
-               <a href="" class="mt-6  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
+               {{!-- <a href="" class="mt-6  relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
       <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
       <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
       <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
       <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
       <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">See More</span> <!-- Update the text for the venues button -->
-    </a>
+    </a> --}}
             </div>
           </div>
         </div>
@@ -301,7 +250,7 @@
     <div class="flex justify-center items-center">
       <!-- choice section that showcases hotels/ venues-->
 <!-- For Venues -->
-<script id="venue-options" type="text/x-handlebars-template">
+{{!-- <script id="venue-options" type="text/x-handlebars-template">
   {{#each venues}}
   <div class="bg-white rounded-lg shadow-lg">
     <img src="{{imageUrl}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
@@ -344,7 +293,7 @@
     </div>
   </div>
   {{/each}}
-</script>
+</script> --}}
 </section>
 <div class="flex justify-center items-center py-16 questions1">
   <div class="w-1/2">
@@ -358,11 +307,11 @@
     </div>
     <div class="py-2 text-2xl">Will I get to see venues that are near my hotel?? <i class="fas fa-chevron-down"></i></div>
     <div class="hidden faq-answer">
-      <p>You will be able to see a variety of venues near your hotel!</p>
+      <p>You will be able to see a variety of venues near the location of your choosing!</p>
     </div>
-    <div class="py-2 text-2xl">What is Travel XP and how does it work? <i class="fas fa-chevron-down"></i></div>
+    <div class="py-2 text-2xl">What is Venue XP and how does it work? <i class="fas fa-chevron-down"></i></div>
     <div class="hidden faq-answer">
-      <p>Travel XP is a travel website which allows users to easily find hotels and venues with ease!</p>
+      <p>Venue XP is a travel website which allows users to find venues with ease!</p>
     </div>
   </div>
 </div>
