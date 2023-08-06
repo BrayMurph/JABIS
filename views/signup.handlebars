@@ -4,7 +4,7 @@
     <div class="flex justify-center items-center mt-10">
       <div class="mt-32 border border-pink-600 p-8 rounded-lg w-96 bg-white">
         <h1 class="text-2xl font-semibold mb-4">Sign Up</h1>
-        <form action="/signup" method="post">
+        <form id="signupForm"  action="/signup" method="post">
           <label for="first_name" class="block mb-2">First Name:</label>
           <input
             type="text"
@@ -58,6 +58,7 @@
       </div>
     </div>
 </div>
-    <script src="path/to/handlebars.js"></script>
-    <script src="path/js/script.js"></script>
+    {{!-- <script src="path/to/handlebars.js"></script>
+    <script src="path/js/script.js"></script> --}}
+    <script src="/js/signup.js"></script>
   </body>
