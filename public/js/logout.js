@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
-    const logoutButton = document.getElementById('logout');
+    const logoutButton = document.getElementById('loginlogout');
     if (logoutButton) {
       logoutButton.addEventListener('click', logout);
     }
