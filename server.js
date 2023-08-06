@@ -105,6 +105,7 @@ app.use('/api/users', userRoutes);
 // Handle logging out?
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
+  console.log('is authenticated:', res.locals.isAuthenticated);
   next();
 })
 

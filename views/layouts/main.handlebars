@@ -24,12 +24,6 @@
       class="navbar-container bg-white py-4 flex fixed w-full top-0"
       style="border-bottom: 0.4px solid rgb(211, 203, 203);"
     >
-    {{#if isAuthenticated}}
-    {{!-- signout button here --}}
-    <form action="/logout" method="post">
-      <button type="submit" class="btn-signout">Sign Out</button>
-    </form>
-    {{else}}
       <a
         href="/"
         class="navbar-brand text-pink-600 text-3xl font-bold ml-4 md:ml-4"
@@ -43,7 +37,6 @@
         class="mr-4 text-pink-600 text-xl font-bold hover:underline"
         id="loginlogout"
       >Login</a>
-      {{/if}}
 
     </div>
     <div class="line-at-bottom bg-black h-1 w-full"></div>
@@ -74,6 +67,7 @@
     {{!-- <script src="path/to/handlebars.js"></script> --}}
     {{!-- <script src="/public/js/script.js"></script> --}}
     {{!-- <script src="/js/login.js"></script> --}}
+    <script src="/js/logout.js"></script>
   </body>
 
 </html>
