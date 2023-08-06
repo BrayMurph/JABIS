@@ -30,9 +30,9 @@ const hbs = exphbs.create({
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // Define a route for the hotels page
-app.get("/hotels", (req, res) => {
-  res.render("hotels", { layout: "main" });
-});
+// app.get("/hotels", (req, res) => {
+//   res.render("hotels", { layout: "main" });
+// });
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
