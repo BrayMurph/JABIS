@@ -69,8 +69,11 @@ app.use(passport.session());
 
 
 // Route to render the main.handlebars template
+// app.get("/", (req, res) => {
+//   res.render("homepage");
+// });
 app.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", { isAuthenticated: req.isAuthenticated() });
 });
 
 
