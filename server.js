@@ -102,7 +102,11 @@ app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
 app.use('/api/users', userRoutes);
 
 
-// Handle signup form submission using the new signup controller
+// Handle logging out?
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+})
 
 
 require("./routes/signin")(app);
