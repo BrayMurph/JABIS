@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // setting elements to a const
-    const loginForm = document.querySelector("#lgoinForm");
+    const loginForm = document.querySelector("#loginForm");
     const usernameInput = document.querySelector("input#username");
     const passwordInput = document.querySelector("input#password");
   
