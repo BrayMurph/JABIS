@@ -9,14 +9,14 @@
 
 const express = require('express');
 const userRoutes = require('./api/user-routes');
-const venueRoutes = require('./api/venue-controller'); 
+// const venueRoutes = require('./home-routes'); 
 
 
 const router = express.Router();
 
 
 router.use('/users', userRoutes);
-router.use('/venues', venueRoutes);
+// router.use('/venues', venueRoutes);
 
 
 module.exports = router;

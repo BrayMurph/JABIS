@@ -2,18 +2,16 @@ const searchFormHandler = async (event) => {
     event.preventDefault();
 
     const city = document.querySelector('#location').value.trim();
-    const checkIn = document.querySelector('#checkin').value.trim();
-    const checkOut = document.querySelector('#checkout').value.trim();
 
-    if (city && checkIn && checkOut) {
+    if (city) {
         const response = await fetch('/', {
-            method: 'POST',
-            body: JSON.stringify({city, checkIn, checkOut}),
+            method: 'GET',
+            body: JSON.stringify({city}),
             headers: {'Content-Type': 'application/json'},
         });
 
         if (response.ok) {
-            document.location.replace('/api');
+            document.location.replace('/venues');
         } else {
             alert('Need to fill in the city, checkIn, and checkOut');
         }
