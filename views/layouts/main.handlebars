@@ -32,13 +32,18 @@
         href="/signup"
         class="ml-auto mr-4 text-pink-600 text-xl font-bold hover:underline"
       >Sign Up</a>
-      <a
-        href="/login"
-        class="mr-4 text-pink-600 text-xl font-bold hover:underline"
-        id="loginlogout"
-      >Login</a>
       {{#if isAuthenticated}}
-      <button class="mr-4 text-pink-600 text-xl font-bold hover:underline" id="logout">Logout</button>
+        <a
+          href="/homepage"
+          class="mr-4 text-pink-600 text-xl font-bold hover:underline"
+          id="loginlogout"
+        >Logout</a>
+      {{else}}
+        <a
+          href="/login"
+          class="mr-4 text-pink-600 text-xl font-bold hover:underline"
+          id="loginButton"
+        >Login</a>
       {{/if}}
     </div>
     <div class="line-at-bottom bg-black h-1 w-full"></div>
@@ -66,9 +71,9 @@
         >Your Privacy Choices</a>
       </p>
     </footer>
-    {{!-- <script src="path/to/handlebars.js"></script> --}}
-    {{!-- <script src="/public/js/script.js"></script> --}}
-    {{!-- <script src="/js/login.js"></script> --}}
+    {{! <script src="path/to/handlebars.js"></script> }}
+    {{! <script src="/public/js/script.js"></script> }}
+    {{! <script src="/js/login.js"></script> }}
     <script src="/js/logout.js"></script>
   </body>
 
