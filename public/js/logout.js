@@ -1,14 +1,21 @@
- const logout = async () => {
-    const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
+// logout.js
+document.addEventListener('DOMContentLoaded', () => {
+    const logout = async () => {
+      const response = await fetch('/logout', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
   
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to logout. Please try again.');
+      }
+    };
+  
+    const logoutButton = document.getElementById('loginlogout');
+    if (logoutButton) {
+      logoutButton.addEventListener('click', logout);
     }
-  };
+  });
   
-  document.querySelector('#logout').addEventListener('click', logout);

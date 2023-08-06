@@ -29,9 +29,9 @@ const hbs = exphbs.create({
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // Define a route for the hotels page
-app.get("/hotels", (req, res) => {
-  res.render("hotels", { layout: "main" });
-});
+// app.get("/hotels", (req, res) => {
+//   res.render("hotels", { layout: "main" });
+// });
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
@@ -73,6 +73,39 @@ app.use(session({
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+// Route to render the main.handlebars template
+// app.get("/", (req, res) => {
+//   res.render("homepage");
+// });
+app.get("/", (req, res) => {
+  res.render("homepage", { isAuthenticated: req.isAuthenticated() });
+});
+
+
+// Route to render the login.handlebars template
+app.get("/login", (req, res) => {
+  res.render("login", {layout: "main"});
+});
+
+// Route to logout
+app.get('/logout', (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      console.error('Error during logout:', err);
+      return res.redirect('/');
+    }
+    console.log('User logged out successfully');
+    return res.redirect('/');
+  });
+});
+
+// Handle logging in
+app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
+  // If authentication is successful, respond with user information or any data you want
+  res.json({ user: req.user });
+});
 
 // authentication routes
 // app.get('/logout', authController.logout);
