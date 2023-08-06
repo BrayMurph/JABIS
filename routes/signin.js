@@ -5,29 +5,28 @@ var passport = require("../config/passport");
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  // // Handle logging in
-app.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) {
-      console.error('Error during authentication:', err);
-      return next(err);
-    }
-    if (!user) {
-      console.log('Login failed:', info.message);
-      return res.redirect('/login');
-    }
-
-    req.logIn(user, (err) => {
+  // Otherwise, the user will be sent an error
+  app.post('/api/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
       if (err) {
-        console.error('Error during login:', err);
+        console.error('Error during authentication:', err);
         return next(err);
       }
-      console.log('Login successful:', user.username);
-      return res.redirect('/');
-    });
-  })(req, res, next);
-});
+      if (!user) {
+        console.log('Login failed:', info.message);
+        return res.redirect('/login');
+      }
+
+      req.logIn(user, (err) => {
+        if (err) {
+          console.error('Error during login:', err);
+          return next(err);
+        }
+        console.log('Login successful:', user.username);
+        return res.redirect('/');
+      });
+    })(req, res, next);
+  });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -37,8 +36,16 @@ app.post('/login', (req, res, next) => {
       username: req.body.username,
       password: req.body.password
     })
-      .then(function() {
-        res.redirect(307, "/api/login");
+      .then(function(newUser) {
+        // Directly log in the newly created user
+        req.logIn(newUser, (err) => {
+          if (err) {
+            console.error('Error during login:', err);
+            return res.status(401).json(err);
+          }
+          console.log('Login successful:', newUser.username);
+          return res.redirect('/');
+        });
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -50,5 +57,4 @@ app.post('/login', (req, res, next) => {
     req.logout();
     res.redirect("/");
   });
-
 };
