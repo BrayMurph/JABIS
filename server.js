@@ -30,9 +30,9 @@ const hbs = exphbs.create({
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // Define a route for the hotels page
-app.get("/hotels", (req, res) => {
-  res.render("hotels", { layout: "main" });
-});
+// app.get("/hotels", (req, res) => {
+//   res.render("hotels", { layout: "main" });
+// });
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
@@ -69,8 +69,11 @@ app.use(passport.session());
 
 
 // Route to render the main.handlebars template
+// app.get("/", (req, res) => {
+//   res.render("homepage");
+// });
 app.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", { isAuthenticated: req.isAuthenticated() });
 });
 
 
