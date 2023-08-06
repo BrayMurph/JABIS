@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Setting elements to constants
-  const signupForm = document.querySelector("form.signup");
+  const signupForm = document.querySelector("#signupForm");
   const firstNameInput = document.querySelector("input#first_name");
   const lastNameInput = document.querySelector("input#last_name");
   const emailInput = document.querySelector("input#email");
