@@ -3,18 +3,10 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require('express-session');
 const passport = require("./config/passport");
-const LocalStrategy = require('passport-local').Strategy;
-const User = require('./models/User');
-const authController = require('./controllers/authController');
 const routes = require('./controllers');
-const axios = require("axios");
 const signupController = require('./controllers/signupController');
 const bodyParser = require('body-parser');
-const db = require("./models/User");
 const sequelize = require('./config/connection')
-const router = require('express').Router();
-const dayjs = require('dayjs');
-
 require("dotenv").config();
 
 const app = express();
@@ -25,13 +17,12 @@ const hbs = exphbs.create({
   /* Specify any Handlebars configuration here */
 });
 
+//Joins the controller to the server
+app.use(routes);
+
 // Configure Handlebars as the template engine
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-// Define a route for the hotels page
-// app.get("/hotels", (req, res) => {
-//   res.render("hotels", { layout: "main" });
-// });
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
@@ -73,16 +64,10 @@ app.use(session({
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(routes);
 
-// Route to render the main.handlebars template
-// app.get("/", (req, res) => {
-//   res.render("homepage");
-// });
 app.get("/", (req, res) => {
   res.render("homepage", { isAuthenticated: req.isAuthenticated() });
 });
-
 
 // Route to render the login.handlebars template
 app.get("/login", (req, res) => {
@@ -106,10 +91,6 @@ app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
   // If authentication is successful, respond with user information or any data you want
   res.json({ user: req.user });
 });
-
-// authentication routes
-// app.get('/logout', authController.logout);
-
 
 // Handle signup form submission using the new signup controller
 app.post('/signup', signupController.signup);
