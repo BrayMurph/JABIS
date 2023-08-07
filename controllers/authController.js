@@ -1,6 +1,5 @@
 // Import the necessary modules and the User model
 const passport = require('passport');
-const User = require('../models/User');
 
 // Define the login function to handle the login form submission
 exports.login = passport.authenticate('local', {
