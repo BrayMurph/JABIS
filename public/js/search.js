@@ -5,7 +5,7 @@ const searchFormHandler = async (event) => {
 
     if (city) {
         const response = await fetch('/', {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify({city}),
             headers: {'Content-Type': 'application/json'},
         });

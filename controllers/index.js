@@ -1,22 +1,14 @@
-
-// const router = require('express').Router();
-// const authController = require('./authController');
- // const authRoute = require('./authController');
-
- // const router = express.Router();
-
-// module.exports = router;
-
 const express = require('express');
-const userRoutes = require('./api/user-routes');
-// const venueRoutes = require('./home-routes'); 
-
-
 const router = express.Router();
 
+const apiRoutes = require('./api');
+// const homeRoutes = require('./home-routes'); 
+// const authRoutes = require('./authController');
+// const signupRoutes = require('./signupController');
 
-router.use('/users', userRoutes);
-// router.use('/venues', venueRoutes);
-
+router.use('/api', apiRoutes);
+// router.use('/', homeRoutes);
+// router.use('/auth', authRoutes);
+// router.use('/signup', signupRoutes);
 
 module.exports = router;
