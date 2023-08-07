@@ -89,8 +89,17 @@ app.get('/logout', (req, res) => {
 // Handle logging in
 app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
   // If authentication is successful, respond with user information or any data you want
+  //  req.session.save(() => {
+  //     req.session.userId = req.user.id;
+  //     req.session.username = req.user.username;
+  //     req.session.loggedIn = true;
+
+  //     res.status(200).json(userData);
+  //   });
   res.json({ user: req.user });
 });
+
+
 
 // Handle signup form submission using the new signup controller
 app.post('/signup', signupController.signup);

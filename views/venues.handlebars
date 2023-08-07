@@ -47,14 +47,14 @@
     </section> }}
 
     <!-- Add this inside the <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8"> -->
-{{#each venue}}
+{{#each venues as |venue|}}
 <div class="bg-white rounded-lg shadow-lg">
-  <img src="{{img}}" alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
+  <img src={{venue.data.url}} alt="{{name}} Image" class="w-full h-48 object-cover rounded-t-lg" />
   <div class="p-6">
-    <h2 class="text-xl font-bold mb-2">{{name}}</h2>
+    <h2 class="text-xl font-bold mb-2">{{venue.name}}</h2>
     <p class="text-gray-600 mb-4">{{description}}</p>
     <div class="flex justify-between items-center">
-      <span class="text-gray-900 font-bold text-xl">${{priceMin}} - ${{priceMax}}</span>
+      <span class="text-gray-900 font-bold text-xl">${{venue.priceRanges.min}} - ${{venue.priceRanges.max}}</span>
       <a href="{{url}}" target="_blank" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
         <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
         <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>

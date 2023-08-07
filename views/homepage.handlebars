@@ -82,10 +82,6 @@
       <!-- Schedule Container -->
       <div class="schedule-container bg-white py-32 px-32  w-full md:w-1/2 md:ml-64 ">
         <form
-          action="/s"
-          target="_blank"
-          role="search"
-          autocomplete="off"
           class="search-form bg-white rounded-lg shadow p-8 max-w-md w-full pb-24"
           id="searchForm"
         >
@@ -110,14 +106,14 @@
           </div>
 
 
-<a href="/" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg  ">
+<button class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white  rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg  ">
   <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
   <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
   <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
   <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
   <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
   <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg" type="submit">Search</span>
-</a>
+</button>
 
   </form>
       </div>
@@ -335,12 +331,7 @@
       });
     });
     </script>
-    {{!-- <script src="/hotels.handlebars"></script> --}}
-    <script src="../controllers/home-routes.js"></script>
-    <script src="/venues.handlebars"></script>
-    {{!-- <script src="/public/js/script.js"></script> --}}
-    {{!-- <script src="/chosenHotel.handlebars"></script> --}}
-    <script src="/server.js"></script>
+     <script src="./js/search.js"></script>
   </body>
 
 </html>

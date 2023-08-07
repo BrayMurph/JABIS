@@ -21,6 +21,7 @@ exports.signup = async (req, res) => {
     res.redirect('/login');
   } catch (err) {
     console.error('Error saving new user:', err);
+    res.status(500).json(err);
     // Handle the error appropriately (e.g., show an error message)
   }
 };

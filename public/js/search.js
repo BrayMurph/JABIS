@@ -4,19 +4,12 @@ const searchFormHandler = async (event) => {
     const city = document.querySelector('#location').value.trim();
 
     if (city) {
-        const response = await fetch('/', {
-            method: 'POST',
-            body: JSON.stringify({city}),
-            headers: {'Content-Type': 'application/json'},
-        });
-
-        if (response.ok) {
-            document.location.replace('/venues');
+            document.location.replace(`/search?city=${city}`);
         } else {
             alert('Need to fill in the city, checkIn, and checkOut');
         }
     }
-};
+
 
 document
   .querySelector('#searchForm')
