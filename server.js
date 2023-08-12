@@ -31,6 +31,9 @@ app.set("view engine", "handlebars");
 app.get("/venues", (req, res) => {
   res.render("venues", { layout: "main" });
 });
+// app.get("/venues", (req, res) => {
+//   res.render("venues", { isAuthenticated: req.isAuthenticated() });
+// });
 
 // Set the views directory
 app.set("views", path.join(__dirname, "views"));

@@ -28,11 +28,11 @@
       style="border-bottom: 0.2px solid rgb(211, 203, 203);"
     >
       <a
-        href="#"
+        href="/"
         class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-8"
       >Venues XP</a>
       <a
-        href="#signup"
+        href="/signup"
         class="ml-auto mr-8 text-pink-600 text-lg font-bold hover:underline"
       >Sign Up</a>
     </div>
@@ -61,7 +61,11 @@
         <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
+        {{!-- {{#if isAuthenticated}} --}}
         <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+        {{!-- {{else}} --}}
+        {{!-- <a href="/signup"><span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Login to continue</span></a> --}}
+        {{!-- {{/if}} --}}
       </a>
     </div>
   </div>
