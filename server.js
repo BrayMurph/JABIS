@@ -8,6 +8,8 @@ const signupController = require('./controllers/signupController');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/connection')
 require("dotenv").config();
+const userRoutes = require('./controllers/api/user-routes');
+
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -39,32 +41,29 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Route to render the main.handlebars template
-app.get("/", (req, res) => {
-  res.render("homepage");
-});
+// express session setup
+app.use(session({
+  secret: process.env.secretKey,
+  resave: false,
+  saveUninitialized: false,
+  store: new sequelizeStore({
+    db: sequelize,
+  })
+}));
 
 // Route to render the signup.handlebars template
 app.get("/signup", (req, res) => {
   res.render("signup", {layout: "main"});
 });
 
-// Route to render the login.handlebars template
-app.get("/login", (req, res) => {
-  res.render("login", {layout: "main"});
-});
-
-// express session setup
-app.use(session({
-  secret: process.env.secretKey,
-  resave: false,
-  saveUninitialized: false,
-}));
+// Handle signup form submission using the new signup controller
+app.post('/signup', signupController.signup);
 
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Route to render the main.handlebars template
 app.get("/", (req, res) => {
   res.render("homepage", { isAuthenticated: req.isAuthenticated() });
 });
@@ -89,20 +88,18 @@ app.get('/logout', (req, res) => {
 // Handle logging in
 app.post('/api/users/login', passport.authenticate('local'), (req, res) => {
   // If authentication is successful, respond with user information or any data you want
-  //  req.session.save(() => {
-  //     req.session.userId = req.user.id;
-  //     req.session.username = req.user.username;
-  //     req.session.loggedIn = true;
-
-  //     res.status(200).json(userData);
-  //   });
   res.json({ user: req.user });
 });
 
+// authentication routes
+app.use('/api/users', userRoutes);
 
-
-// Handle signup form submission using the new signup controller
-app.post('/signup', signupController.signup);
+// Handle logging out
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  console.log('is authenticated:', res.locals.isAuthenticated);
+  next();
+})
 
 require("./routes/signin")(app);
 
