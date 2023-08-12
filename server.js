@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const sequelize = require('./config/connection')
 require("dotenv").config();
 const userRoutes = require('./controllers/api/user-routes');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const app = express();
@@ -41,14 +42,17 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// added sessionStore const to store the users session
+const sessionStore = new SequelizeStore({
+  db: sequelize,
+})
 // express session setup
+// calls sessionStore
 app.use(session({
   secret: process.env.secretKey,
   resave: false,
   saveUninitialized: false,
-  store: new sequelizeStore({
-    db: sequelize,
-  })
+  store: sessionStore,
 }));
 
 // Route to render the signup.handlebars template
