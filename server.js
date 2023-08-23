@@ -29,7 +29,7 @@ app.set("view engine", "handlebars");
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
-  res.render("venues", { layout: "main" });
+  res.render("venues", { layout: "main", isAuthenticated: req.isAuthenticated() });
 });
 // app.get("/venues", (req, res) => {
 //   res.render("venues", { isAuthenticated: req.isAuthenticated() });

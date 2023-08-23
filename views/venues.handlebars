@@ -61,11 +61,11 @@
         <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-        {{!-- {{#if isAuthenticated}} --}}
+        {{#if isAuthenticated}}
         <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
-        {{!-- {{else}} --}}
-        {{!-- <a href="/signup"><span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Login to continue</span></a> --}}
-        {{!-- {{/if}} --}}
+        {{else}}
+        <a href="/signup"><span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Login to continue</span></a>
+        {{/if}}
       </a>
     </div>
   </div>
@@ -87,10 +87,11 @@
         class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300 ease-in-out ml-2"
       >2</a>
     </div>
-    <script src="/js/search.js"></script>
+    {{!-- <script src="/js/search.js"></script> --}}
     <script src="../controllers/home-routes.js"></script>
     <script src="../server.js"></script>
-    <script src="path/js/script.js"></script>
+    {{!-- <script src="path/js/script.js"></script> --}}
+    <script src="/js/logout.js"></script>
   </body>
 
 </html>
