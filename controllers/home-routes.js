@@ -13,6 +13,7 @@ router.get('/search', async (req, res) => {
         });
 
         const venues = venueRes.data._embedded.events;
+        // res.json(venues[0].priceRanges[0].min);
         return res.render('venues', { venues });
     } catch (error) {
         console.error('Error fetching venues:', error);
