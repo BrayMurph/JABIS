@@ -108,6 +108,11 @@ app.use((req, res, next) => {
   next();
 })
 
+// Route to check if the user is logged in
+app.get('/checkLoggedIn', (req, res) => {
+  res.json({ isLoggedIn: req.isAuthenticated() });
+});
+
 require("./routes/signin")(app);
 
 // Start the server
