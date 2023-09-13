@@ -28,11 +28,11 @@
       style="border-bottom: 0.2px solid rgb(211, 203, 203);"
     >
       <a
-        href="#"
+        href="/"
         class="navbar-brand text-pink-600 text-2xl font-bold ml-4 md:ml-8"
       >Venues XP</a>
       <a
-        href="#signup"
+        href="/signup"
         class="ml-auto mr-8 text-pink-600 text-lg font-bold hover:underline"
       >Sign Up</a>
     </div>
@@ -59,13 +59,18 @@
       {{!-- {{#times 5}} --}}
       <span class="text-gray-900 font-bold text-xl">${{venue.priceRanges.[0].min}} - ${{venue.priceRanges.[0].max}}</span>
       {{!-- {{/times}} --}}
+      {{#if isAuthenticated}}
       <a href="{{url}}" target="_blank" class="relative px-5 py-3 overflow-hidden font-medium text-white bg-pink-600 border-white rounded-lg shadow-inner group group-hover:bg-green-500 rounded-lg">
         <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
         <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-green-500 custom-transition group-hover:w-full ease rounded-lg"></span>
         <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-green-500 custom-transition group-hover:h-full ease rounded-lg"></span>
         <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-green-600 opacity-0 custom-transition group-hover:opacity-100 rounded-lg"></span>
-        <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Book now</span>
+        
+        <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg" id="bookButton">Book now</span>
+        {{else}}
+        <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease rounded-lg">Login to continue</span>
+        {{/if}}
       </a>
     </div>
   </div>
@@ -87,10 +92,11 @@
         class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300 ease-in-out ml-2"
       >2</a>
     </div>
-    <script src="/js/search.js"></script>
+    {{!-- <script src="/js/search.js"></script> --}}
     <script src="../controllers/home-routes.js"></script>
     <script src="../server.js"></script>
-    <script src="path/js/script.js"></script>
+    {{!-- <script src="path/js/script.js"></script> --}}
+    <script src="/js/logout.js"></script>
   </body>
 
 </html>

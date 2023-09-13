@@ -29,8 +29,11 @@ app.set("view engine", "handlebars");
 
 // Define a route for the venues page
 app.get("/venues", (req, res) => {
-  res.render("venues", { layout: "main" });
+  res.render("venues", { layout: "main", isAuthenticated: req.isAuthenticated() });
 });
+// app.get("/venues", (req, res) => {
+//   res.render("venues", { isAuthenticated: req.isAuthenticated() });
+// });
 
 // Set the views directory
 app.set("views", path.join(__dirname, "views"));
@@ -104,6 +107,11 @@ app.use((req, res, next) => {
   console.log('is authenticated:', res.locals.isAuthenticated);
   next();
 })
+
+// Route to check if the user is logged in
+app.get('/checkLoggedIn', (req, res) => {
+  res.json({ isLoggedIn: req.isAuthenticated() });
+});
 
 require("./routes/signin")(app);
 
